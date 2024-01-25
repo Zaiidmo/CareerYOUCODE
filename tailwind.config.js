@@ -7,7 +7,16 @@ export default {
     ],
     darkMode: "class",
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+              salsa: ["Salsa", "cursive"],
+            },
+            fontSize: {
+              'x12': '10rem',
+              'sss': '0.5rem',
+            },
+        },
     },
     plugins: [],
 };
