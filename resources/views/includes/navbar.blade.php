@@ -13,7 +13,7 @@
             </button> -->
             <div id="logo" class="pl-4 flex items-center z-40">
                 <a href="home" class="flex items-center ">
-                    <img src="{{ asset('images/youcode.png') }}" alt="logo" class="w-10 h-10">
+                    <img src="/images/Youcode.png" alt="logo" class="w-30 h-8">
                     <!-- <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="48" height="48" fill="url(#pattern0)" />
                         <defs>
@@ -99,8 +99,8 @@
                     </li>
                 <?php else : ?>
                     <div id="navigation" class="hidden md:flex gap-3">
-                        <a href="login" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-2xl text-sm px-4 py-2 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">GET STARETD</a>
-                        <a href="contact" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-2xl text-sm px-4 py-2 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">CONTACT US</a>
+                        <a href="login" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-1 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">GET STARETD</a>
+                        <a href="contact" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-1 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">CONTACT US</a>
                     </div>
                 <?php endif ?>
 
