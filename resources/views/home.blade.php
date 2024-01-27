@@ -26,7 +26,7 @@
             <div class="mr-auto place-self-center text-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl  tracking-tight font-salsa leading-none md:text-5xl xl:text-6xl dark:text-white">Job Dating Event</h1>
                 <p class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Welcome to Job Dating Event, the ultimate platform bridging the gap between YOUCODE and your dream career! Unleash the power of connections at our exclusive Job Dating event. Connect, network, and pave the way for your future success. Swipe right on your dream career with CareerYoucode!</p>
-                <a href="wikis" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                <a href="jobs" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Discover Announcements
                 </a>
                 <?php if (!isset($_SESSION['id'])) : ?>

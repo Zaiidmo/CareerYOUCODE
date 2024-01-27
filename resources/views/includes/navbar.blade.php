@@ -12,7 +12,7 @@
                 </svg>
             </button> -->
             <div id="logo" class="pl-4 flex items-center z-40">
-                <a href="home" class="flex items-center ">
+                <a href="/" class="flex items-center ">
                     <img src="/images/Youcode.png" alt="logo" class="w-30 h-8">
                     <!-- <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="48" height="48" fill="url(#pattern0)" />
@@ -107,7 +107,7 @@
                 <!-- Theme toggler -->
                 <li class="flex">
                     <div id="theme-toggler">
-                        <button aria-label="theme-toggle" id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <button aria-label="theme-toggle" id="theme-toggle" type="button" class="text-white dark:text-gray-400 hover:bg-blue-500 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5">
                             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                             </svg>
