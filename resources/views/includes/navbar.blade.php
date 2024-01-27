@@ -1,8 +1,8 @@
 <?php if (session_status() == PHP_SESSION_NONE) {
     session_start();
 } ?>
-<header class="z-40 fixed w-screen py-1 flex bg-blue-600 shadow-md dark:bg-gray-800">
-    <nav class="container mx-auto w-full flex justify-between items-center h-full px-6 text-gray-600 dark:text-gray-300">
+<header class="z-40 fixed w-screen py-3 flex shadow-md bg-gray-800 opacity-75 ">
+    <nav class="container mx-auto w-full flex justify-between items-center h-full px-6 text-gray-600 dark:text-gray-300 backdrop-blur-lg">
         <div class="flex justify-evenly">
             <!-- <button type="button" id="sidebar-toggle-button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg smXl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                 <span class="sr-only">Open sidebar</span>

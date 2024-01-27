@@ -8,13 +8,16 @@ export default {
     darkMode: "class",
     theme: {
         extend: {
+            backdropBlur: {
+               nn : "10px",
+            },
             fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
-              salsa: ["Salsa", "cursive"],
+                poppins: ["Poppins", "sans-serif"],
+                salsa: ["Salsa", "cursive"],
             },
             fontSize: {
-              'x12': '10rem',
-              'sss': '0.5rem',
+                x12: "10rem",
+                sss: "0.5rem",
             },
         },
     },
