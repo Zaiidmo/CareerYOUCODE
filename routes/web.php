@@ -28,3 +28,6 @@ Route::get('signup', function () {
 Route::get('single_page', function () {
     return view('single_page');
 });
+Route::get('dashboard', function () {
+    return view('dashboard');
+});
