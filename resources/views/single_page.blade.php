@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, CareerYOUCODE,YOUCODE, Job, Career, Jobdating">
-    <meta name="author" content="Zaiid Moumnii">
-    <meta name="description" content="CarrerYOUCODE .. JobDating Events By YOUCODE School">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Announcemet Job</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
-</head>
+@section('title')
+    CareerYOUCODE
+@endsection
 
-<body class="bg-gray-300 font-poppins dark:bg-gray-900">
-    <?php include '../resources/views/includes/navbar.blade.php' ?>
+@section('content')
     <!-- Content Section -->
     <section class="bg-white dark:bg-gray-900 pt-24">
         <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:flex lg:flex-col lg:py-16 lg:px-6">
@@ -39,7 +27,4 @@
             </div>
         </div>
     </section>
-</body>
-<script src="{{ asset('js/theme.js')}}"></script>
-
-</html>
+@endsection
