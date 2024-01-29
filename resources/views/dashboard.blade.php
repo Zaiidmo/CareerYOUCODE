@@ -139,25 +139,6 @@
                         </div>
 
                     </div>
-                    <!-- Card -->
-                    <div id="tags" class="flex items-center p-4 bg-white  rounded-2xl shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 rounded-full">
-                            <span class="h-12 w-12 border border-black dark:border-none bg-white rounded-full flex justify-center items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15">
-                                    <path fill="currentColor" d="M10 4.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0" />
-                                    <path fill="currentColor" fill-rule="evenodd" d="M7.146.146A.5.5 0 0 1 7.5 0h6A1.5 1.5 0 0 1 15 1.5v6a.5.5 0 0 1-.146.354l-7 7a.5.5 0 0 1-.708 0l-7-7a.5.5 0 0 1 0-.708zM10.5 3a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Tags
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                tags  </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
