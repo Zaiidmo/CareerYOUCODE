@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    CareerYOUCODE
+    Single Page
 @endsection
 
 @section('content')
