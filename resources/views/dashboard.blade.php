@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, CareerYOUCODE,YOUCODE, Job, Career, Jobdating">
-    <meta name="author" content="Zaiid Moumnii">
-    <meta name="description" content="CarrerYOUCODE .. JobDating Events By YOUCODE School">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Admin - Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
-</head>
-
-<body class="bg-gray-300 font-poppins dark:bg-gray-900">
-    <?php include '../resources/views/includes/navbar.blade.php' ?>
-    <main id="main" class="px-16 md:px-28 ">
+@section('title')
+    Admin - Dashboard
+@endsection
+@include('layouts.sidebar')
+@section('content')
+    <main id="main" class="px-16 md:px-28 ml-64 ">
         <div class="pt-24 md:h-screen overflow-y-auto">
             <div class="container  md:px-6 md:mx-auto grid">
                 <h4 class="md:ml-16 md:mt-6 font-semibold font-poppins tracking-widest text-gray-700 dark:text-gray-200">
@@ -143,6 +131,4 @@
             </div>
         </div>
     </main>
-</body>
-<script src="{{ asset('js/theme.js')}}"></script>
-</html>
+@endsection
