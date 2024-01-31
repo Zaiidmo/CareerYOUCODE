@@ -32,12 +32,12 @@ class CompanyController extends Controller
      */
     public function store(CompanyRequest $request)
     {
-        //storing data 
+        //storing data
         $data = [];
         $data['name'] = $request->input('name');
         $data['email'] = $request->input('email');
         $data['location'] = $request->input('location');
-        
+
         // Handling File Upload
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
@@ -51,7 +51,7 @@ class CompanyController extends Controller
             // Save the filename to the database
             $data['logo'] = $fileName;
         }
-        // dd($data);  
+        // dd($data);
         // Create and save the record
         // $company = new Company($data);
         // $company->save();
@@ -83,14 +83,16 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, Company $company)
     {
         $company->update($request->validated());
-        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Company $company)
+    public function destroy(string $id)
     {
-        //
+        Company::destroy($id);
+        return redirect()
+            ->route('companies.index')
+            ->with('success', 'Company Deleted Successfully.');
     }
 }

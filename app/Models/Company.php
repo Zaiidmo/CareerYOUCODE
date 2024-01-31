@@ -15,4 +15,3 @@ class Company extends Model
         'logo'
     ];
 }
-gi
