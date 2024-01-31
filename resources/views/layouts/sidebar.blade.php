@@ -22,9 +22,9 @@
                 <!-- <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span> -->
             </a>
         </li>
-        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
+        <?php //if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
             <li>
-                <a href="Dashboard" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="dashboard" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 5C2 4.46957 2.21071 3.96086 2.58579 3.58579C2.96086 3.21071 3.46957 3 4 3H10V21H4C3.46957 21 2.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V5ZM14 3H20C20.5304 3 21.0391 3.21071 21.4142 3.58579C21.7893 3.96086 22 4.46957 22 5V10H14V3ZM14 14H22V19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H14V14Z" stroke="#ABB2BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -43,17 +43,17 @@
                 </a>
             </li>
             <li>
-                <a href="Categories" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="companies" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.07 4.5L5.4075 5.1675L5.82 6H9V9.75H3V4.5H5.07ZM5.535 3H2.25C2.05109 3 1.86032 3.07902 1.71967 3.21967C1.57902 3.36032 1.5 3.55109 1.5 3.75V10.5C1.5 10.6989 1.57902 10.8897 1.71967 11.0303C1.86032 11.171 2.05109 11.25 2.25 11.25H9.75C9.94891 11.25 10.1397 11.171 10.2803 11.0303C10.421 10.8897 10.5 10.6989 10.5 10.5V5.25C10.5 5.05109 10.421 4.86032 10.2803 4.71967C10.1397 4.57902 9.94891 4.5 9.75 4.5H6.75L6.21 3.4125C6.1471 3.28767 6.05058 3.18291 5.93131 3.11002C5.81204 3.03713 5.67477 2.99903 5.535 3ZM17.07 4.5L17.4075 5.1675L17.82 6H21V9.75H15V4.5H17.07ZM17.535 3H14.25C14.0511 3 13.8603 3.07902 13.7197 3.21967C13.579 3.36032 13.5 3.55109 13.5 3.75V10.5C13.5 10.6989 13.579 10.8897 13.7197 11.0303C13.8603 11.171 14.0511 11.25 14.25 11.25H21.75C21.9489 11.25 22.1397 11.171 22.2803 11.0303C22.421 10.8897 22.5 10.6989 22.5 10.5V5.25C22.5 5.05109 22.421 4.86032 22.2803 4.71967C22.1397 4.57902 21.9489 4.5 21.75 4.5H18.75L18.21 3.4125C18.1471 3.28767 18.0506 3.18291 17.9313 3.11002C17.812 3.03713 17.6748 2.99903 17.535 3ZM5.07 14.25L5.4075 14.9175L5.82 15.75H9V19.5H3V14.25H5.07ZM5.535 12.75H2.25C2.05109 12.75 1.86032 12.829 1.71967 12.9697C1.57902 13.1103 1.5 13.3011 1.5 13.5V20.25C1.5 20.4489 1.57902 20.6397 1.71967 20.7803C1.86032 20.921 2.05109 21 2.25 21H9.75C9.94891 21 10.1397 20.921 10.2803 20.7803C10.421 20.6397 10.5 20.4489 10.5 20.25V15C10.5 14.8011 10.421 14.6103 10.2803 14.4697C10.1397 14.329 9.94891 14.25 9.75 14.25H6.75L6.21 13.1625C6.1471 13.0377 6.05058 12.9329 5.93131 12.86C5.81204 12.7871 5.67477 12.749 5.535 12.75ZM17.07 14.25L17.4075 14.9175L17.82 15.75H21V19.5H15V14.25H17.07ZM17.535 12.75H14.25C14.0511 12.75 13.8603 12.829 13.7197 12.9697C13.579 13.1103 13.5 13.3011 13.5 13.5V20.25C13.5 20.4489 13.579 20.6397 13.7197 20.7803C13.8603 20.921 14.0511 21 14.25 21H21.75C21.9489 21 22.1397 20.921 22.2803 20.7803C22.421 20.6397 22.5 20.4489 22.5 20.25V15C22.5 14.8011 22.421 14.6103 22.2803 14.4697C22.1397 14.329 21.9489 14.25 21.75 14.25H18.75L18.21 13.1625C18.1471 13.0377 18.0506 12.9329 17.9313 12.86C17.812 12.7871 17.6748 12.749 17.535 12.75Z" fill="#ABB2BF" />
                     </svg>
 
-                    <span class="flex-1 ms-3  whitespace-nowrap">Categories</span>
+                    <span class="flex-1 ms-3  whitespace-nowrap">Companies</span>
                     <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> -->
                 </a>
             </li>
             <li>
-                <a href="WikisManagement" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="announcements" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_21_396)">
                             <path d="M20.385 3.53691L20.975 4.12691C21.788 4.94091 21.665 6.38391 20.698 7.34991L8.531 19.5169L4.589 20.9589C4.094 21.1409 3.612 20.9049 3.514 20.4339C3.48088 20.2631 3.49647 20.0863 3.559 19.9239L5.029 15.9479L17.162 3.81391C18.129 2.84791 19.572 2.72291 20.385 3.53691ZM8 4.74691C8.13132 4.74691 8.26136 4.77278 8.38268 4.82303C8.50401 4.87329 8.61425 4.94694 8.70711 5.0398C8.79996 5.13266 8.87362 5.2429 8.92388 5.36423C8.97413 5.48555 9 5.61559 9 5.74691C9 5.87823 8.97413 6.00827 8.92388 6.12959C8.87362 6.25092 8.79996 6.36116 8.70711 6.45402C8.61425 6.54688 8.50401 6.62053 8.38268 6.67079C8.26136 6.72104 8.13132 6.74691 8 6.74691H4C3.46957 6.74691 2.96086 6.95762 2.58579 7.3327C2.21071 7.70777 2 8.21648 2 8.74691V20.7469C2 21.2773 2.21071 21.7861 2.58579 22.1611C2.96086 22.5362 3.46957 22.7469 4 22.7469H16C16.5304 22.7469 17.0391 22.5362 17.4142 22.1611C17.7893 21.7861 18 21.2773 18 20.7469V16.7469C18 16.4817 18.1054 16.2273 18.2929 16.0398C18.4804 15.8523 18.7348 15.7469 19 15.7469C19.2652 15.7469 19.5196 15.8523 19.7071 16.0398C19.8946 16.2273 20 16.4817 20 16.7469V20.7469C20 21.8078 19.5786 22.8252 18.8284 23.5753C18.0783 24.3255 17.0609 24.7469 16 24.7469H4C2.93913 24.7469 1.92172 24.3255 1.17157 23.5753C0.421427 22.8252 0 21.8078 0 20.7469V8.74691C0 7.68604 0.421427 6.66863 1.17157 5.91848C1.92172 5.16834 2.93913 4.74691 4 4.74691H8Z" fill="#ABB2BF" />
@@ -65,11 +65,11 @@
                         </defs>
                     </svg>
 
-                    <span class="flex-1 ms-3  whitespace-nowrap">Wikis Management</span>
+                    <span class="flex-1 ms-3  whitespace-nowrap">Announcements</span>
                     <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> -->
                 </a>
             </li>
-        <?php endif ?>
+        <!-- <?php //endif ?>
         <li>
             <a href="Wikis" class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +79,7 @@
                 <span class="flex-1 ms-3 whitespace-nowrap">Explore Wikis</span>
             </a>
         </li>
-        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'author') : ?>
+        <?php //if (isset($_SESSION['role']) && $_SESSION['role'] == 'author') : ?>
             <li>
                 <a href="NewWiki" class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Post a new Wiki</span>
                 </a>
             </li>
-        <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'reader') : ?>
+        <?php //elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'reader') : ?>
             <li>
                 <a href="users/becomeAuthor" onclick=confirmUpdate() class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Become an Author</span>
                 </a>
             </li>
-        <?php elseif (!isset($_SESSION['role'])) : ?>
+        <?php //elseif (!isset($_SESSION['role'])) : ?>
             <li>
                 <a href="signup" onclick=confirmUpdate() class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Get Started Now</span>
                 </a>
             </li>
-        <?php endif ?>
+        <?php //endif ?> -->
     </ul>
 
 </aside>
