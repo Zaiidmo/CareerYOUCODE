@@ -71,15 +71,31 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        //
-    }
+        $companies = Company::all();
+        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies]);    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateAnnouncementRequest $request, Announcement $announcement)
     {
-        //
+        $data = $request->validated();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            //Generate a unique filename based on the announcement title
+            $fileName = $data['title'] . '_' . time() . '.' . $file->getClientOriginalExtension();
+
+            //Move the file to the "storage/app/public/uploads/jobs_image" directory
+            $file->storeAs('public/uploads/jobs_image', $fileName);
+
+            //Save the filename to the database
+            $data['image'] = $fileName;
+        }
+        $announcement->update($data);
+        return redirect()
+            ->route('announcements.index')
+            ->with('message', 'Announcement updated successfully.');
     }
 
     /**
