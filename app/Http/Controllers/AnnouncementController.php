@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreannouncementRequest;
-use App\Http\Requests\UpdateannouncementRequest;
-use App\Models\announcement;
+use App\Http\Requests\StoreAnnouncementRequest;
+use App\Http\Requests\UpdateAnnouncementRequest;
+use App\Models\Announcement;
 
 class AnnouncementController extends Controller
 {
@@ -27,7 +27,7 @@ class AnnouncementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreannouncementRequest $request)
+    public function store(StoreAnnouncementRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class AnnouncementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(announcement $announcement)
+    public function show(Announcement $announcement)
     {
         //
     }
@@ -43,7 +43,7 @@ class AnnouncementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(announcement $announcement)
+    public function edit(Announcement $announcement)
     {
         //
     }
@@ -51,7 +51,7 @@ class AnnouncementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateannouncementRequest $request, announcement $announcement)
+    public function update(UpdateAnnouncementRequest $request, Announcement $announcement)
     {
         //
     }
@@ -59,7 +59,7 @@ class AnnouncementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(announcement $announcement)
+    public function destroy(Announcement $announcement)
     {
         //
     }

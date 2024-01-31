@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorecompaniesRequest;
-use App\Http\Requests\UpdatecompaniesRequest;
-use App\Models\companies;
+use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
+use App\Models\Company;
 
-class CompaniesController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class CompaniesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecompaniesRequest $request)
+    public function store(StoreCompanyRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class CompaniesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(companies $companies)
+    public function show(Company $company)
     {
         //
     }
@@ -43,7 +43,7 @@ class CompaniesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(companies $companies)
+    public function edit(Company $company)
     {
         //
     }
@@ -51,7 +51,7 @@ class CompaniesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecompaniesRequest $request, companies $companies)
+    public function update(UpdateCompanyRequest $request, Company $company)
     {
         //
     }
@@ -59,7 +59,7 @@ class CompaniesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(companies $companies)
+    public function destroy(Company $company)
     {
         //
     }
