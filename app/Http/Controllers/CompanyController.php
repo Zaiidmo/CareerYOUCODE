@@ -66,7 +66,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.edit');
+        // return view('companies.edit');
     }
 
     /**
@@ -74,7 +74,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -82,7 +82,28 @@ class CompanyController extends Controller
      */
     public function update(CompanyRequest $request, Company $company)
     {
-        $company->update($request->validated());
+        $data = $request->validated();
+
+        // Handling File Upload
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+
+            // Generate a unique filename based on the company name
+            $fileName = $company->name . '_' . time() . '.' . $file->getClientOriginalExtension();
+
+            // Move the file to the "storage/app/public/uploads/logos" directory
+            $file->storeAs('public/uploads/logos', $fileName);
+
+            // Save the filename to the data array
+            $data['logo'] = $fileName;
+        }
+
+        // Update the company with the validated data
+        $company->update($data);
+
+        return redirect()
+            ->route('companies.index')
+            ->with('success', 'Company Updated Successfully.');
     }
 
     /**
