@@ -31,7 +31,7 @@
                             <th class="px-4 py-3">Title</th>
                             <th class="px-4 py-3">Description</th>
                             <th class="px-4 py-3">Company</th>
-                            <!-- <th class="px-4 py-3">Status</th> -->
+                            <th class="px-4 py-3">Posted At</th>
                             <!-- <th class="px-4 py-3">Purshased Tickets</th> -->
                             <!-- <th class="px-4 py-3"></th> -->
                             <th class="px-4 py-3">Actions</th>
@@ -41,24 +41,20 @@
                         <?php foreach ($announcements as $announcement) { ?>
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="self-center px-4 py-3">
-                                <div class="flex items-center text-sm">
-                                    <!-- Avatar with inset shadow -->
-                                    <div class="flex items-center">
-                                        <img src="{{ asset('storage/uploads/logos/' . $announcements->picture) }}"
-                                            alt="{{ $announcements->title }} Logo " class="object-cover w-8 h-8 rounded-full mr-2">
-                                        <p class="font-semibold"><?= $announcements['title'] ?></p>
-                                    </div>
-                                </div>
+                                <p class="font-semibold "><?= $announcement['title'] ?></p>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 <?= $announcement['description'] ?>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $announcement['company'] ?>
+                                <?= $announcement->company->name ?>
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <?= $announcement['created_at'] ?>
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center justify-center space-x-4 text-sm">
-                                    <a href="{{route('announcements.edit', ['announcement' => $announcement])}}">
+                                    <a href="{{ route('announcements.edit', ['announcement' => $announcement]) }}">
                                         <button
                                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                             aria-label="Edit">
@@ -69,7 +65,8 @@
                                             </svg>
                                         </button>
                                     </a>
-                                    <form class="p-0 m-0" action="{{ route('announcements.destroy', ['announcement' => $announcement]) }}"
+                                    <form class="p-0 m-0"
+                                        action="{{ route('announcements.destroy', ['announcement' => $announcement]) }}"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')

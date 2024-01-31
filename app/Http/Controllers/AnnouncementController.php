@@ -36,11 +36,11 @@ class AnnouncementController extends Controller
         $data = [];
         $data['title'] = $request->input('title');
         $data['description'] = $request->input('description');
-        $data['company'] = $request->input('company');
+        $data['company_id'] = $request->input('company_id');
 
         //Handling File Upload
-        if ($request->hasFile('picture')) {
-            $file = $request->file('picture');
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
 
             //Generate a unique filename based on the announcement title
             $fileName = $data['title'] . '_' . time() . '.' . $file->getClientOriginalExtension();
@@ -49,7 +49,7 @@ class AnnouncementController extends Controller
             $file->storeAs('public/uploads/jobs_image', $fileName);
 
             //Save the filename to the database
-            $data['picture'] = $fileName;
+            $data['image'] = $fileName;
         }
         //Create an announcement using the data array
         Announcement::create($data);

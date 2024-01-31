@@ -24,8 +24,8 @@ class StoreAnnouncementRequest extends FormRequest
         return [
             'title' => 'required|min:5|max:255',
             'description' => 'required|min:15',
-            'company' => 'required|min:10|max:255',
-            'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif',
+            'company_id' => 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif',
         ];
     }
 }
