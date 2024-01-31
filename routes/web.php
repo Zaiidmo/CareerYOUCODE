@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource('users', Controller ::class);
-Route::resource('announcements', AnnouncementController ::class);
+// Route::resource('users', Controller ::class);
+// Route::resource('announcements', AnnouncementController ::class);
 Route::resource('companies', CompanyController ::class);
 
 Route::get('/', function () {
@@ -35,5 +35,5 @@ Route::get('/', function () {
 //     return view('single_page');
 // });
 Route::get('dashboard', function () {
-    return view('dashboard.dashboard');
+    return view('dashboard');
 });
