@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAnnouncementRequest;
 use App\Http\Requests\UpdateAnnouncementRequest;
 use App\Models\Announcement;
+use App\Models\Company;
 
 class AnnouncementController extends Controller
 {
@@ -22,7 +23,8 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('announcements.create');
+        $companies = Company::all();
+        return view('announcements.create', ['companies' => $companies]);
     }
 
     /**
@@ -30,7 +32,7 @@ class AnnouncementController extends Controller
      */
     public function store(StoreAnnouncementRequest $request)
     {
-        //Storing Data 
+        //Storing Data
         $data = [];
         $data['title'] = $request->input('title');
         $data['description'] = $request->input('description');
@@ -49,6 +51,11 @@ class AnnouncementController extends Controller
             //Save the filename to the database
             $data['picture'] = $fileName;
         }
+        //Create an announcement using the data array
+        Announcement::create($data);
+        return redirect()
+            ->route('announcements.index')
+            ->with('message', 'Announcement created successfully.');
     }
 
     /**
