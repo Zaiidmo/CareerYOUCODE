@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::resource('users', Controller ::class);
+Route::resource('users', UserController ::class);
 Route::resource('announcements', AnnouncementController ::class);
 Route::resource('companies', CompanyController ::class);
 
