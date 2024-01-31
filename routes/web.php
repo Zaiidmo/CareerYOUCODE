@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Route::resource('users', Controller ::class);
-// Route::resource('announcements', AnnouncementController ::class);
+Route::resource('announcements', AnnouncementController ::class);
 Route::resource('companies', CompanyController ::class);
 
 Route::get('/', function () {

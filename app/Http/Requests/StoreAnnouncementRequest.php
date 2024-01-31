@@ -11,7 +11,7 @@ class StoreAnnouncementRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreAnnouncementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|min:5|max:255',
+            'description' => 'required|min:15',
+            'company' => 'required|min:10|max:255',
+            'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif',
         ];
     }
 }

@@ -13,7 +13,8 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        //
+        $announcements = Announcement::all();
+        return view('announcements.index', compact('announcements'));
     }
 
     /**
@@ -21,7 +22,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        //
+        return view('announcements.create');
     }
 
     /**
@@ -29,7 +30,25 @@ class AnnouncementController extends Controller
      */
     public function store(StoreAnnouncementRequest $request)
     {
-        //
+        //Storing Data 
+        $data = [];
+        $data['title'] = $request->input('title');
+        $data['description'] = $request->input('description');
+        $data['company'] = $request->input('company');
+
+        //Handling File Upload
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+
+            //Generate a unique filename based on the announcement title
+            $fileName = $data['title'] . '_' . time() . '.' . $file->getClientOriginalExtension();
+
+            //Move the file to the "storage/app/public/uploads/jobs_image" directory
+            $file->storeAs('public/uploads/jobs_image', $fileName);
+
+            //Save the filename to the database
+            $data['picture'] = $fileName;
+        }
     }
 
     /**
