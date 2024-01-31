@@ -24,7 +24,7 @@ class CompanyRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:255',
             'email' => 'required|min:15|max:255',
-            'location' => 'required|min:15|max:255',
+            'location' => 'required|min:10|max:255',
             'logo' => 'sometimes|image|mimes:jpeg,png,jpg',
         ];
     }
