@@ -30,7 +30,7 @@
                             <td class="px-4 py-3">
                                 <div class="flex items-center text-sm">
                                     <!-- Avatar with inset shadow -->
-                                    <div class="flex">
+                                    <div class="flex items-center">
                                         <img src="{{ asset('storage/uploads/logos/' . $company->logo) }}"
                                             alt="{{ $company->name }} Logo " class="object-cover w-8 h-8 rounded-full mr-2">
                                         <p class="font-semibold"><?= $company['name'] ?></p>
