@@ -14,4 +14,7 @@ class Company extends Model
         'location',
         'logo'
     ];
+    public function announcements(){
+        return $this->hasMany(Announcement::class);
+    }
 }

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Announcement extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'company_id'
+    ];
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
 }

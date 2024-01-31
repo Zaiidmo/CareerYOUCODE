@@ -116,4 +116,5 @@ class CompanyController extends Controller
             ->route('companies.index')
             ->with('success', 'Company Deleted Successfully.');
     }
+
 }
