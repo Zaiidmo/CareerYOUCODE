@@ -54,7 +54,10 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->update(['role' => 'staff']);
+        return redirect()
+            ->route('users.index')
+            ->with('success', 'New Admin Have been made Succesfully');
     }
 
     /**

@@ -45,13 +45,15 @@
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center justify-center space-x-4 text-sm">
-                                    <a href="{{ route('users.edit', ['user' => $user]) }}">
-                                        <button
+                                    <form class="p-0 m-0" action="{{ route('users.update', ['user' => $user]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit"
                                             class="text-white p-0 dark:text-gray-400 bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                                             aria-label="Edit">
                                             Make Admin
                                         </button>
-                                    </a>
+                                    </form>
                                     <form class="p-0 m-0" action="{{ route('users.destroy', ['user' => $user]) }}"
                                         method="POST">
                                         @csrf
