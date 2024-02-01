@@ -17,6 +17,8 @@ class CheckUserRole
     {
         if ($request->user() && $request->user()->role === 'staff') {
             return $next($request);
+        } elseif ($request->user() && $request->user()->role === 'student') {
+            return redirect()->route('profile.edit');
         } else {
             abort(403, 'Unauthorized');
         }

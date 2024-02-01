@@ -25,7 +25,7 @@
                         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         Discover Announcements
                     </a>
-                    <a href="login"
+                    <a href="register"
                         class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-800 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                         Get started
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -60,8 +60,7 @@
                                         <?= $announcement['description'] ?>
                                     </p>
                                 </div>
-                                <form action="singlepage" method="POST">
-                                    <input type="hidden" name="id" value="">
+                                <a href="{{ route('announcements.show', $announcement->id) }}">
                                     <button type="submit" href="singlepage"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Read more
@@ -71,12 +70,11 @@
                                                 stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9">
                                         </svg>
                                     </button>
-                                </form>
                             </div>
                         </div>
                         <?php endforeach?>
                     </div>
-                    @else
+                @else
                     <h3 class="mt-4 text-2xl tracking-wider font-bold text-gray-900 dark:text-white">
                         No Announcements Available
                     </h3>
