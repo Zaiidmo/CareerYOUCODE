@@ -11,6 +11,9 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display the user's profile .
+     */
     public function index()
     {
         return view('profile.index');
