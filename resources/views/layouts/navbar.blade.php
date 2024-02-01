@@ -1,6 +1,3 @@
-<?php if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-} ?>
 <header class="z-40 fixed w-screen py-3 flex shadow-md bg-gray-800 opacity-75 ">
     <nav class="container mx-auto w-full flex justify-between items-center h-full px-6 text-gray-600 dark:text-gray-300 backdrop-blur-lg">
         <div class="flex justify-evenly">

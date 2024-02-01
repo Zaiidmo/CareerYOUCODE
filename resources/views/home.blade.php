@@ -20,11 +20,11 @@
                         Welcome to Job Dating Event, the ultimate platform bridging the gap between YOUCODE and your dream
                         career! Unleash the power of connections at our exclusive Job Dating event. Connect, network, and
                         pave the way for your future success. Swipe right on your dream career with CareerYoucode!</p>
-                    <a href="jobs"
+                    <a href="discover"
                         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         Discover Announcements
                     </a>
-                    <a href="signin"
+                    <a href="login"
                         class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-800 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                         Get started
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -45,9 +45,8 @@
                         Opportunities
                     </h2>
                 </div>
-                {{-- @isset($announcements) --}}
+                @if ($announcements->count() > 0)
                     <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
-                        {{-- {{ dd($announcements)}} --}}
                         <?php foreach ($announcements as $announcement) :?>
                         <div
                             class="max-w-sm bg-gray-300 border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
@@ -76,11 +75,11 @@
                         </div>
                         <?php endforeach?>
                     </div>
-                {{-- @else
+                    @else
                     <h3 class="mt-4 text-2xl tracking-wider font-bold text-gray-900 dark:text-white">
                         No Announcements Available
                     </h3>
-                @endisset --}}
+                @endif
             </div>
         </section>
     </main>
