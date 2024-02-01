@@ -26,11 +26,11 @@ Route::get('/', function () {
     return view('home', compact('announcements'));
 });
 
-// Route::get('announcements/discover', function () {
-//     $controller = new AnnouncementController();
-//     return $controller->discover();
-// });
-Route::get('announcements/discover', [AnnouncementController::class, 'discover'])->name('discover');
+Route::get('discover', function (){
+    $announcements = Announcement::get();
+    return view('announcements/discover', compact('announcements'));
+});
+
 
 // Route::get('login', function () {
 //     return view('login');

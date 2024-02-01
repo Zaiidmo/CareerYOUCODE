@@ -26,13 +26,14 @@
                 <div id="announcements-container" class="grid gap-8 lg:grid-cols-2">
                     <?php foreach($announcements as $announcement) :?>
                     <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="singlepage">Something Something</a></h2>
-                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">Something Something</p>
+                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="singlepage"><?= $announcement['title']?></a></h2>
+                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400"><?= $announcement['description']?></p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center space-x-4">
-                                <img class="w-auto h-9 rounded-full" src="/images/Youcode.png" alt="author" />
+                                <img src="{{ asset('storage/uploads/logos/' .  $announcement->company->logo) }}"
+                                    alt="{{ $announcement->company->name }} Logo " class="object-cover w-8 h-8 rounded-full mr-2">
                                 <span class="font-medium dark:text-white">
-                                Something Something?>
+                                    <?= $announcement->company->name ?>
                                 </span>
                             </div>
                             <form action="singlepage" method="POST">
