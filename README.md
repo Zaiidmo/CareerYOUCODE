@@ -35,7 +35,7 @@ php artisan cache:clear
 ## CareerYOUCODE Features
 
 - Light/dark mode toggle
-- nteractive learning modules
+- Interactive learning modules
 - Job search functionality
 - Personalized career planning
 - User authentication and profiles
@@ -57,7 +57,7 @@ php artisan cache:clear
 ## What do you need to do
 
 1. After Setting Up The Environment (Steps 3-4)
-You'll find that all the needed tables and Data for the Project all Already Created in the data base folder All you
+You'll find that all the needed tables and data for the Project all already Created in the data base folder All you
 need to do is to change the credentials in the .env file to match those in your database
 2. Open The Repository Using Your Own Code Editor and Run the following commands
 ```bash
@@ -71,8 +71,8 @@ php artisan serve
 ```
 This will start a local server on port 8000. You can access it by
 going to http://localhost:8000 in your web browser.
----
 ENJOY EXPLORING THE MAGIC BEHIND THE SCENES 
+---
 
 ## Author
 
