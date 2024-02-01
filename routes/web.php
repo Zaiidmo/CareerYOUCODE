@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Route;
@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::resource('users', UserController ::class);
 Route::resource('announcements', AnnouncementController ::class);
 Route::resource('companies', CompanyController ::class);
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', function () {
     $announcements = Announcement::limit(6)->get();
@@ -31,16 +33,14 @@ Route::get('discover', function (){
     return view('announcements/discover', compact('announcements'));
 });
 
-
-// Route::get('login', function () {
-//     return view('login');
-// });
-// Route::get('signup', function () {
-//     return view('signup');
-// });
-// Route::get('single_page', function () {
-//     return view('single_page');
-// });
-Route::get('dashboard', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__.'/auth.php';
