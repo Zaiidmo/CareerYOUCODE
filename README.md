@@ -69,11 +69,10 @@ npx tailwindcss -i ./resources/css/styles.css -o ./public/css/app.css --watch --
 ```bash
 php artisan serve
 ```
-This will start a local server on port 8000. You can access it by
-going to http://localhost:8000 in your web browser.
+#### This will start a local server on port 8000. You can access it by going to http://localhost:8000 in your web browser.
+---
 ENJOY EXPLORING THE MAGIC BEHIND THE SCENES 
 ---
-
 ## Author
 
 - [@Zaiid-Moumni](https://github.com/Zaiidmo/)
