@@ -9,6 +9,10 @@ use App\Models\Company;
 
 class AnnouncementController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkUserRole:staff')->except(['discover', 'show']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -81,7 +85,8 @@ class AnnouncementController extends Controller
     public function edit(Announcement $announcement)
     {
         $companies = Company::all();
-        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies]);    }
+        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies]);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -117,5 +122,4 @@ class AnnouncementController extends Controller
             ->route('announcements.index')
             ->with('message', 'Announcement deleted successfully.');
     }
-
 }

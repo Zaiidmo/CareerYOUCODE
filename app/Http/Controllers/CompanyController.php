@@ -13,6 +13,10 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('checkUserRole:staff');
+    }
     public function index()
     {
         $companies = Company::all();

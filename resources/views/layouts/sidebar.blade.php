@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="Profile" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="profile" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10C8 8.93913 8.42143 7.92172 9.17157 7.17157C9.92172 6.42143 10.9391 6 12 6C13.0609 6 14.0783 6.42143 14.8284 7.17157C15.5786 7.92172 16 8.93913 16 10Z" fill="#ABB2BF" />
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.592 21.992C6.2585 21.778 2 17.386 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C11.9543 22.0003 11.9087 22.0003 11.863 22C11.7725 22 11.682 21.997 11.592 21.992ZM5.583 18.31C5.50823 18.0953 5.48278 17.8665 5.50854 17.6406C5.5343 17.4147 5.6106 17.1975 5.73179 17.0051C5.85298 16.8128 6.01593 16.6502 6.20856 16.5294C6.40119 16.4086 6.61855 16.3328 6.8445 16.3075C10.7425 15.876 13.2815 15.915 17.1605 16.3165C17.3868 16.3401 17.6046 16.4149 17.7976 16.5354C17.9905 16.6559 18.1534 16.8189 18.2739 17.0119C18.3943 17.2048 18.4691 17.4227 18.4927 17.649C18.5162 17.8753 18.4877 18.1039 18.4095 18.3175C20.072 16.6354 21.003 14.365 21 12C21 7.0295 16.9705 3 12 3C7.0295 3 3 7.0295 3 12C3 14.458 3.9855 16.686 5.583 18.31Z" fill="#ABB2BF" />
@@ -22,14 +22,13 @@
                 <!-- <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span> -->
             </a>
         </li>
-        <?php //if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
             <li>
                 <a href="dashboard" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 5C2 4.46957 2.21071 3.96086 2.58579 3.58579C2.96086 3.21071 3.46957 3 4 3H10V21H4C3.46957 21 2.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V5ZM14 3H20C20.5304 3 21.0391 3.21071 21.4142 3.58579C21.7893 3.96086 22 4.46957 22 5V10H14V3ZM14 14H22V19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H14V14Z" stroke="#ABB2BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span class="flex-1 ms-3  whitespace-nowrap">Dashboard </span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Dashboard</span>
                     <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> -->
                 </a>
             </li>
@@ -69,46 +68,7 @@
                     <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> -->
                 </a>
             </li>
-        <!-- <?php //endif ?>
-        <li>
-            <a href="Wikis" class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 1.5C9.9233 1.5 7.89323 2.11581 6.16652 3.26957C4.4398 4.42332 3.09399 6.0632 2.29927 7.98182C1.50455 9.90045 1.29661 12.0116 1.70176 14.0484C2.1069 16.0852 3.10693 17.9562 4.57538 19.4246C6.04383 20.8931 7.91476 21.8931 9.95156 22.2982C11.9884 22.7034 14.0996 22.4955 16.0182 21.7007C17.9368 20.906 19.5767 19.5602 20.7304 17.8335C21.8842 16.1068 22.5 14.0767 22.5 12C22.5 9.21523 21.3938 6.54451 19.4246 4.57538C17.4555 2.60625 14.7848 1.5 12 1.5ZM21 11.25H16.5C16.4125 8.48781 15.6969 5.78186 14.4075 3.3375C16.1839 3.82342 17.7685 4.84263 18.9474 6.25757C20.1263 7.6725 20.8427 9.41504 21 11.25ZM12 21C11.8327 21.0112 11.6648 21.0112 11.4975 21C9.94372 18.5221 9.08139 15.6736 9 12.75H15C14.9254 15.6715 14.0709 18.5199 12.525 21C12.3502 21.0123 12.1748 21.0123 12 21ZM9 11.25C9.07462 8.32851 9.92914 5.48012 11.475 3C11.809 2.96247 12.1461 2.96247 12.48 3C14.0417 5.4756 14.9119 8.3243 15 11.25H9ZM9.57001 3.3375C8.28848 5.78373 7.5806 8.48959 7.5 11.25H3C3.15728 9.41504 3.87371 7.6725 5.0526 6.25757C6.23149 4.84263 7.81608 3.82342 9.5925 3.3375H9.57001ZM3.0375 12.75H7.53751C7.61577 15.5098 8.32108 18.2156 9.60001 20.6625C7.82915 20.1714 6.25109 19.1499 5.07792 17.7354C3.90475 16.3209 3.19271 14.5811 3.0375 12.75ZM14.4075 20.6625C15.6969 18.2181 16.4125 15.5122 16.5 12.75H21C20.8427 14.585 20.1263 16.3275 18.9474 17.7424C17.7685 19.1574 16.1839 20.1766 14.4075 20.6625Z" fill="#ABB2BF" />
-                </svg>
-
-                <span class="flex-1 ms-3 whitespace-nowrap">Explore Wikis</span>
-            </a>
-        </li>
-        <?php //if (isset($_SESSION['role']) && $_SESSION['role'] == 'author') : ?>
-            <li>
-                <a href="NewWiki" class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#ABB2BF" d="M12 4c4.411 0 8 3.589 8 8s-3.589 8-8 8s-8-3.589-8-8s3.589-8 8-8m0-2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m5 9h-4V7h-2v4H7v2h4v4h2v-4h4z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Post a new Wiki</span>
-                </a>
-            </li>
-        <?php //elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'reader') : ?>
-            <li>
-                <a href="users/becomeAuthor" onclick=confirmUpdate() class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#ABB2BF" d="m12.05 19l2.85-2.825l-2.85-2.825L11 14.4l1.075 1.075q-.7.025-1.362-.225t-1.188-.775q-.5-.5-.763-1.15t-.262-1.3q0-.425.113-.85t.312-.825l-1.1-1.1q-.425.625-.625 1.325T7 12q0 .95.375 1.875t1.1 1.65q.725.725 1.625 1.088t1.85.387l-.95.95zm4.125-4.25q.425-.625.625-1.325T17 12q0-.95-.363-1.888T15.55 8.45q-.725-.725-1.638-1.075t-1.862-.35L13 6.05L11.95 5L9.1 7.825l2.85 2.825L13 9.6l-1.1-1.1q.675 0 1.375.263t1.2.762q.5.5.763 1.15t.262 1.3q0 .425-.112.85t-.313.825zM12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20m0-8" />
-                    </svg>
-
-                    <span class="flex-1 ms-3 whitespace-nowrap">Become an Author</span>
-                </a>
-            </li>
-        <?php //elseif (!isset($_SESSION['role'])) : ?>
-            <li>
-                <a href="signup" onclick=confirmUpdate() class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#ABB2BF" d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6 2a4 4 0 0 0 4-4a4 4 0 0 0-4-4a4 4 0 0 0-4 4a4 4 0 0 0 4 4" />
-                    </svg>
-
-                    <span class="flex-1 ms-3 whitespace-nowrap">Get Started Now</span>
-                </a>
-            </li>
-        <?php //endif ?> -->
+        
     </ul>
 
 </aside>
