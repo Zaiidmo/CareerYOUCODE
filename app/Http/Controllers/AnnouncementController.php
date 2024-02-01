@@ -19,6 +19,15 @@ class AnnouncementController extends Controller
     }
 
     /**
+     * Display all the Announcements
+     */
+
+    public function discover()
+    {
+        $announcements = Announcement::all();
+        return view('announcements.discover', compact('announcements'));
+    }
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -108,4 +117,5 @@ class AnnouncementController extends Controller
             ->route('announcements.index')
             ->with('message', 'Announcement deleted successfully.');
     }
+
 }

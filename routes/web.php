@@ -4,6 +4,7 @@ use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Models\Announcement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,11 +22,16 @@ Route::resource('announcements', AnnouncementController ::class);
 Route::resource('companies', CompanyController ::class);
 
 Route::get('/', function () {
-    return view('home');
+    $announcements = Announcement::limit(6)->get();
+    return view('home', compact('announcements'));
 });
-// Route::get('jobs', function () {
-//     return view('jobs');
+
+// Route::get('announcements/discover', function () {
+//     $controller = new AnnouncementController();
+//     return $controller->discover();
 // });
+Route::get('announcements/discover', [AnnouncementController::class, 'discover'])->name('discover');
+
 // Route::get('login', function () {
 //     return view('login');
 // });
