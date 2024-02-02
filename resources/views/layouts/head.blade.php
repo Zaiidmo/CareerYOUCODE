@@ -8,7 +8,7 @@
     <meta name="author" content="Zaiid Moumnii">
     <meta name="description" content="CarrerYOUCODE .. JobDating Events By YOUCODE School">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    {{-- @vite('resources/css/app.css') --}}
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <title>@yield('title')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
