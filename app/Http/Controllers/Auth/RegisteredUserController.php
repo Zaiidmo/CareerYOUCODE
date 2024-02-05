@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role as ModelsRole;
 
 class RegisteredUserController extends Controller
 {
@@ -43,10 +44,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // $defaultRole = role::where('name', 'student')->first();
-        // if ($defaultRole) {
-        //     $user->roles()->attach($defaultRole);
-        // }
+        $defaultRole = ModelsRole::where('name', 'student')->first();
+        if ($defaultRole) {
+            $user->roles()->attach($defaultRole);
+        }
 
 
         event(new Registered($user));
