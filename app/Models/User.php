@@ -40,9 +40,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Skill::class);
     }
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
+    
 }
 
