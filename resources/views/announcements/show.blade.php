@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Single Page
+    <?= $announcement['title']?>
 @endsection
 
 @section('content')
