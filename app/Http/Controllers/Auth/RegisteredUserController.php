@@ -49,7 +49,7 @@ class RegisteredUserController extends Controller
         //     $user->roles()->attach($defaultRole);
         // }
 
-
+        $user->assignRole('student'); 
         event(new Registered($user));
 
         Auth::login($user);
