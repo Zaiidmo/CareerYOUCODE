@@ -41,7 +41,9 @@
                                     {{ $user->email }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ $user->role }} 
+                                    @foreach ($user->roles as $role)
+                                        {{ $role->name }}
+                                    @endforeach
                                 </td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-center space-x-4 text-sm">
