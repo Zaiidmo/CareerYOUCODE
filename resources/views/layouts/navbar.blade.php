@@ -37,6 +37,12 @@
                             {{ __('Profile') }}
                         </x-responsive-nav-link>
                     </li>
+                    @else
+                    <li>
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-responsive-nav-link>
+                    </li>
                     @endrole
                     <li>
                         <form method="POST" action="{{ route('logout') }}">

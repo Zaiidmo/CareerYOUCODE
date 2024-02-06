@@ -36,6 +36,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
+        
         $companies = Company::all();
         return view('announcements.create', ['companies' => $companies]);
     }
