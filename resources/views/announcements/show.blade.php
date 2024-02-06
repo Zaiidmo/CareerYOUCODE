@@ -20,9 +20,9 @@
                 <p class="mb-4"><?= $announcement['description']?>
             </div>
             <div class="flex flex-row">
-                <?php //foreach ($tags as $tag) : ?>
-                    {{-- <span class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">Some Tags</span> --}}
-                <?php //endforeach ?>
+                @foreach ($announcement->skills as $skill) 
+                    <span class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">{{ $skill->name}}</span>
+                @endforeach 
             </div>
         </div>
     </section>
