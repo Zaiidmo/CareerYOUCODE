@@ -9,10 +9,10 @@ use App\Models\Company;
 
 class AnnouncementController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('checkUserRole:staff')->except(['discover', 'show']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('checkUserRole:staff')->except(['discover', 'show']);
+    // }
     /**
      * Display a listing of the resource.
      */

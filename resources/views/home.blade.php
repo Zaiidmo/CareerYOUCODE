@@ -55,16 +55,16 @@
                 </div>
                 @if ($announcements->count() > 0)
                     <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
-                        <?php foreach ($announcements as $announcement) :?>
+                        @foreach ($announcements as $announcement)
                         <div
                             class="max-w-sm bg-gray-300 border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
                             <div class="p-5">
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <?= $announcement['title'] ?></h5>
+                                    {{$announcement->title}} </h5>
                                 <div class="">
                                     <p
                                         class="line-clamp-1 p-3 rounded overflow-hidden font-normal text-gray-700  dark:text-gray-400">
-                                        <?= $announcement['description'] ?>
+                                        {{$announcement->description}}
                                     </p>
                                 </div>
                                 <a href="{{ route('announcements.show', $announcement->id) }}">
@@ -79,7 +79,7 @@
                                     </button>
                             </div>
                         </div>
-                        <?php endforeach?>
+                        @endforeach
                     </div>
                 @else
                     <h3 class="mt-4 text-2xl tracking-wider font-bold text-gray-900 dark:text-white">
