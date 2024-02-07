@@ -27,7 +27,7 @@
                     <div class="relative justify-center">
                         <div
                             class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center dark:text-white text-indigo-500">
-                            <img class="rounded-full " src="{{ asset('storage/uploads/profiles/' . 'profile.jpg') }}"
+                            <img class="rounded-full object-cover w-full h-full " src="{{ asset('storage/uploads/profiles/' . $user->avatar) }}"
                                 alt="profile">
                         </div>
                     </div>

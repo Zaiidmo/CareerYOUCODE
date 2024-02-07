@@ -17,8 +17,8 @@ class ProfileController extends Controller
     public function index()
     {
         return view('profile.index', [
-            'user' => Auth::user()]
-        );
+            'user' => Auth::user(),
+        ]);
     }
     /**
      * Display the user's profile form.
@@ -35,15 +35,44 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // Initialize $avatar variable
+        $avatar = null;
+
+        if ($request->hasFile('avatar')) {
+            $avatarFile = $request->file('avatar');
+
+            // Generate a unique filename based on the user's name
+            $filename = $user->name . '_' . time() . '.' . $avatarFile->getClientOriginalExtension();
+
+            // Store the uploaded avatar file
+            $avatarFile->storeAs('public/uploads/profiles', $filename);
+
+            // Set the avatar filename
+            $avatar = $filename;
         }
 
-        $request->user()->save();
+        // Fill the user model with validated data
+        $user->fill($request->validated());
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        // If email is being changed, reset email verification
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        // If avatar was uploaded, update the user's avatar field
+        if ($avatar !== null) {
+            $user->avatar = $avatar;
+        }
+
+        // Save the updated user model
+        $user->save();
+
+        // Redirect back to the profile index with a success message
+        return redirect()
+            ->route('profile.index')
+            ->with('status', 'Profile updated successfully.');
     }
 
     /**
