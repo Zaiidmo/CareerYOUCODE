@@ -188,27 +188,32 @@
                             Applications
                         </h1>
                     </div>
-                    <div id="application" class="w-full md:w-80 rounded-xl mb-5 bg-gray-200 dark:bg-gray-900 shadow-2xl ">
-                        <div class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover  bg-center"
-                            style="background-image: url('https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
-                        </div>
-                        <div class="p-4 rounded-b-xl ">
-                            <div class="flex flex-col items-center justify-center">
-                                <h1 class="text-black dark:text-white font-medium">Full Stack Web dev</h1>
-                                <p class="text-black dark:text-white text-sm my-1">ShellBoxes</p>
-                                <a class="self-end mr-4 text-black dark:text-white">
-                                    <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 32 32">
-                                            <circle cx="16" cy="16" r="4" fill="currentColor" />
-                                            <path fill="currentColor"
-                                                d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68M16 22.5a6.5 6.5 0 1 1 6.5-6.5a6.51 6.51 0 0 1-6.5 6.5" />
-                                        </svg>
-                                    </button>
-                                </a>
+                    @foreach ($user->applications as $application)
+                        <div id="application"
+                            class="w-full md:w-80 rounded-xl mb-5 bg-gray-200 dark:bg-gray-900 shadow-2xl">
+                            <div class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover bg-center"
+                                style="background-image: url('{{ asset('storage/uploads/jobs_image/' . $application->image) }}')">
+                            </div>
+                            <div class="p-4 rounded-b-xl">
+                                <div class="flex flex-col items-center justify-center">
+                                    <h1 class="text-black dark:text-white font-medium">{{ $application->title }}</h1>
+                                    <p class="text-black dark:text-white text-sm my-1">{{ $application->company->name    }}</p>
+                                    <a href="{{ route('announcements.show', $application) }}"
+                                        class="self-end mr-4 text-black dark:text-white">
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 32 32">
+                                                <circle cx="16" cy="16" r="4" fill="currentColor" />
+                                                <path fill="currentColor"
+                                                    d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68M16 22.5a6.5 6.5 0 1 1 6.5-6.5a6.51 6.51 0 0 1-6.5 6.5" />
+                                            </svg>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
