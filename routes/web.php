@@ -28,6 +28,7 @@ Route::get('discover', function () {
     $announcements = Announcement::get();
     return view('announcements/discover', compact('announcements'));
 });
+Route::post('applying', [AnnouncementController::class, 'apply'])->name('announcements.apply');
 
 //ADMINS PAGES
 Route::middleware(['auth', 'verified', 'role:staff'])

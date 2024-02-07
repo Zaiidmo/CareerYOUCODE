@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateAnnouncementRequest;
 use App\Models\Announcement;
 use App\Models\Company;
 use App\Models\Skill;
+use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
 {
@@ -129,4 +130,14 @@ class AnnouncementController extends Controller
             ->route('announcements.index')
             ->with('message', 'Announcement deleted successfully.');
     }
+    public function apply(Request $request, Announcement $announcement)
+{
+    $announcementId = $announcement->id;
+    $user = auth()->user();
+    $announcement->applicants()->attach($user);
+    return redirect()
+        ->back()
+        ->with('message', 'You have successfully applied for the job.');
+}
+
 }

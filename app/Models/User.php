@@ -48,6 +48,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Skill::class, 'user_skill');
     }
+    public function applications()
+    {
+        return $this->belongsToMany(Announcement::class, 'announcement_user');
+    }
     
 }
 

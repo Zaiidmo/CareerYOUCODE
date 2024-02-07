@@ -17,6 +17,10 @@ class Announcement extends Model
     public function company(){
         return $this->belongsTo(Company::class);
     }
+    public function applicants()
+    {
+        return $this->belongsToMany(User::class, 'announcement_user');
+    }
     public function skills()
     {
         return $this->belongsToMany(Skill::class);
