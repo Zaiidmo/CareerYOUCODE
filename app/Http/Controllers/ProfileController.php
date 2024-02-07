@@ -16,7 +16,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
+        return view('profile.index', [
+            'user' => Auth::user()]
+        );
     }
     /**
      * Display the user's profile form.
