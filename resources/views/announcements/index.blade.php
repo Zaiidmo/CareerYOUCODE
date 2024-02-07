@@ -38,19 +38,19 @@
                         </tr>
                     </thead>
                     <tbody class="text-center bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                        <?php foreach ($announcements as $announcement) { ?>
+                        @foreach ($announcements as $announcement) 
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="self-center px-4 py-3">
-                                <p class="font-semibold "><?= $announcement['title'] ?></p>
+                                <p class="font-semibold ">{{ $announcement->title }} </p>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $announcement['description'] ?>
+                                {{ $announcement->description }} 
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $announcement->company->name ?>
+                                {{ $announcement->company->name }} 
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $announcement['created_at'] ?>
+                                {{ $announcement->created_at }} 
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center justify-center space-x-4 text-sm">
@@ -83,7 +83,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <?php } ?>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

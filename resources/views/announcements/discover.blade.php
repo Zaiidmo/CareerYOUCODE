@@ -29,19 +29,19 @@
                     </div>
                 </form>
                 <div id="announcements-container" class="grid gap-8 lg:grid-cols-2">
-                    <?php foreach($announcements as $announcement) :?>
+                    @foreach($announcements as $announcement) 
                     <article
                         class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                         <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a
-                                href="singlepage"><?= $announcement['title'] ?></a></h2>
-                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400"><?= $announcement['description'] ?></p>
+                            href="{{ route('announcements.show', $announcement->id)}}">{{ $announcement->title}} </a></h2>
+                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $announcement->description }} </p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center space-x-4">
                                 <img src="{{ asset('storage/uploads/logos/' . $announcement->company->logo) }}"
                                     alt="{{ $announcement->company->name }} Logo "
                                     class="object-cover w-8 h-8 rounded-full mr-2">
                                 <span class="font-medium dark:text-white">
-                                    <?= $announcement->company->name ?>
+                                    {{ $announcement->company->name}} 
                                 </span>
                             </div>
                             <a href="{{ route('announcements.show', $announcement->id)}}">
@@ -58,7 +58,7 @@
                             </a>
                         </div>
                     </article>
-                    <?php endforeach ?>
+                    @endforeach 
 
                 </div>
             </div>
