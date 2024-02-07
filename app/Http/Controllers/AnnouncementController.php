@@ -89,8 +89,9 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
+        $skills = Skill::all();
         $companies = Company::all();
-        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies]);
+        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies, 'skills' => $skills]);
     }
 
     /**
@@ -112,6 +113,7 @@ class AnnouncementController extends Controller
             $data['image'] = $fileName;
         }
         $announcement->update($data);
+        $announcement->skills()->attach($request->skills);
         return redirect()
             ->route('announcements.index')
             ->with('message', 'Announcement updated successfully.');
