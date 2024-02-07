@@ -27,8 +27,8 @@
                     <div class="relative justify-center">
                         <div
                             class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center dark:text-white text-indigo-500">
-                            <img class="rounded-full object-cover w-full h-full " src="{{ asset('storage/uploads/profiles/' . $user->avatar) }}"
-                                alt="profile">
+                            <img class="rounded-full object-cover w-full h-full "
+                                src="{{ asset('storage/uploads/profiles/' . $user->avatar) }}" alt="profile">
                         </div>
                     </div>
                     <div class="lg:space-x-8 py-1 flex justify-center lg:justify-between mt-32 md:mt-0 md:justify-center">
@@ -58,7 +58,7 @@
                                     My
                                     Skills
                                 </h1>
-                                <button>
+                                <button id="add-skill-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                         viewBox="0 0 24 24" class="text-gray-800 dark:text-white">
                                         <path fill="currentColor"
@@ -66,19 +66,25 @@
                                     </svg>
                                 </button>
                             </div>
-                            <div class="grid grid-cols-3 md:grid-cols-5 gap-3 ">
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
+                            <div id="select-skill-wrapper" class="hidden">
+                                <form id="skills_form" action="{{ route('update_user_skills') }}" method="post">
+                                    @csrf
+                                    @method('patch')
+                                    <select id="select-skills" name="skills[]" multiple
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                        required>
+                                        @foreach ($skills as $skill)
+                                            <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </form>
+                            </div>
+                            <div class="flex flex-row">
+                                @foreach ($user->skills as $skill)
+                                    <span
+                                        class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">{{ $skill->name }}</span>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -192,8 +198,7 @@
                                 <p class="text-black dark:text-white text-sm my-1">ShellBoxes</p>
                                 <a class="self-end mr-4 text-black dark:text-white">
                                     <button>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 32 32">
                                             <circle cx="16" cy="16" r="4" fill="currentColor" />
                                             <path fill="currentColor"
@@ -209,3 +214,23 @@
         </div>
     </main>
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addSkillButton = document.getElementById('add-skill-button');
+        const selectSkillWrapper = document.getElementById('select-skill-wrapper');
+        const selectSkills = document.getElementById('select-skills');
+        const skillsForm = document.getElementById('skills-form');
+
+        addSkillButton.addEventListener('click', function() {
+            selectSkillWrapper.classList.toggle('hidden');
+        });
+
+        selectSkills.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission by default
+                skillsForm.submit(); // Manually submit the form
+            }
+        });
+
+    });
+</script>

@@ -31,7 +31,7 @@
                                     <div class="flex items-center text-sm">
                                         <!-- Avatar with inset shadow -->
                                         <div class="flex items-center">
-                                            <img src="{{ asset('storage/uploads/logos/' . $user->picture) }}"
+                                            <img src="{{ asset('storage/uploads/profiles/' . $user->avatar) }}"
                                                 alt="{{ $user->name }}" class="object-cover w-8 h-8 rounded-full mr-2">
                                             <p class="font-semibold">{{ $user->name }}</p>
                                         </div>
