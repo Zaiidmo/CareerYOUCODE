@@ -130,14 +130,6 @@ class AnnouncementController extends Controller
             ->route('announcements.index')
             ->with('message', 'Announcement deleted successfully.');
     }
-    public function apply(Request $request, Announcement $announcement)
-{
-    $announcementId = $announcement->id;
-    $user = auth()->user();
-    $announcement->applicants()->attach($user);
-    return redirect()
-        ->back()
-        ->with('message', 'You have successfully applied for the job.');
-}
+    
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Announcement;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -18,10 +19,12 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $announcemet = Announcement::all();
         $skills = Skill::all();
         return view('profile.index', [
             'user' => Auth::user(),
             'skills' => $skills,
+            'announcements' => $announcemet
         ]);
     }
     /**
