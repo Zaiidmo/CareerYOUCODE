@@ -113,7 +113,7 @@ class AnnouncementController extends Controller
             $data['image'] = $fileName;
         }
         $announcement->update($data);
-        $announcement->skills()->attach($request->skills);
+        $announcement->skills()->sync($request->skills);
         return redirect()
             ->route('announcements.index')
             ->with('message', 'Announcement updated successfully.');

@@ -5,7 +5,7 @@
 @endsection
 @include('layouts.sidebar')
 @section('content')
-    <main id="main" class="md:h-screen mt-18 md:px-28 px-16 ml-64 ">
+    <main id="main" class="mt-18 md:px-28 px-16 ml-64 ">
         <div aria-hidden="true" class="flex flex-col justify-center px-2 mt-18 lg:px-2 text-gray-900 dark:text-white">
             <h2
                 class="pt-36 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
@@ -40,7 +40,7 @@
                                 <span class="text-red-500 text-l"> *</span></label>
                             <input type="text" name="description" id="description"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
-                                placeholder="Announcement description" required="">
+                                value="{{ $announcement->description }}">
                         </div>
                         <div class="sm:col-span-2">
                             <label for="Company"
@@ -61,10 +61,13 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                 required="">
                                 @foreach ($skills as $skill)
-                                    <option class="text-gray-900 dark:text-white" value="{{ $skill->id }}">
-                                        {{ $skill->name }}</option>
+                                    <option class="text-gray-900 dark:text-white" value="{{ $skill->id }}"
+                                        {{ in_array($skill->id, $announcement->skills->pluck('id')->toArray()) ? 'selected' : '' }}>
+                                        {{ $skill->name }}
+                                    </option>
                                 @endforeach
                             </select>
+
                         </div>
                         <div class="sm:col-span-2">
                             <label for="image"
