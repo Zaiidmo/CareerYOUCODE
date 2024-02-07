@@ -55,6 +55,18 @@
                             </select>
                         </div>
                         <div class="sm:col-span-2">
+                            <label for="skills"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Skills</label>
+                            <select id="select-skills" name="skills[]" multiple
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                required="">
+                                @foreach ($skills as $skill)
+                                    <option class="text-gray-900 dark:text-white" value="{{ $skill->id }}">
+                                        {{ $skill->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
                             <label for="image"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">image<span
                                     class="text-red-500 text-l"> *</span></label>

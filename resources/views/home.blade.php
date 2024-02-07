@@ -21,20 +21,27 @@
                         Welcome to Job Dating Event, the ultimate platform bridging the gap between YOUCODE and your dream
                         career! Unleash the power of connections at our exclusive Job Dating event. Connect, network, and
                         pave the way for your future success. Swipe right on your dream career with CareerYoucode!</p>
-                    <a href="discover"
-                        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        Discover Announcements
-                    </a>
-                    <a href="register"
-                        class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-800 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Get started
-                        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
+                    @auth
+                        <a href="discover"
+                            class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                            Discover Announcements
+                        </a>
+                    @else
+                        <a href="discover"
+                            class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                            Discover Announcements
+                        </a>
+                        <a href="register"
+                            class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-800 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                            Get started
+                            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    @endauth
                 </div>
             </div>
         </section>
@@ -48,16 +55,16 @@
                 </div>
                 @if ($announcements->count() > 0)
                     <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
-                        <?php foreach ($announcements as $announcement) :?>
+                        @foreach ($announcements as $announcement)
                         <div
                             class="max-w-sm bg-gray-300 border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
                             <div class="p-5">
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <?= $announcement['title'] ?></h5>
+                                    {{$announcement->title}} </h5>
                                 <div class="">
                                     <p
                                         class="line-clamp-1 p-3 rounded overflow-hidden font-normal text-gray-700  dark:text-gray-400">
-                                        <?= $announcement['description'] ?>
+                                        {{$announcement->description}}
                                     </p>
                                 </div>
                                 <a href="{{ route('announcements.show', $announcement->id) }}">
@@ -70,9 +77,10 @@
                                                 stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9">
                                         </svg>
                                     </button>
+                                </a>
                             </div>
                         </div>
-                        <?php endforeach?>
+                        @endforeach
                     </div>
                 @else
                     <h3 class="mt-4 text-2xl tracking-wider font-bold text-gray-900 dark:text-white">

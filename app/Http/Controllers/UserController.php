@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('checkUserRole:staff');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('checkUserRole:staff');
+    // }
     /**
      * Display a listing of the resource.
      */
@@ -58,10 +59,14 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update(['role' => 'staff']);
+        $role = Role::where('name', 'staff')->firstOrFail();
+    
+        // Sync the user's roles to only the role you fetched
+        $user->syncRoles([$role->id]);
+        
         return redirect()
             ->route('users.index')
-            ->with('success', 'New Admin Have been made Succesfully');
+            ->with('success', 'User role updated successfully.');
     }
 
     /**

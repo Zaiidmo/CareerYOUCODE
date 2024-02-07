@@ -31,11 +31,19 @@
                     </button>
                 {{-- Menu --}}
                 <ul id="dropdown" class="hidden absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700" aria-label="submenu">            
+                    @role('staff')
                     <li>
                         <x-responsive-nav-link :href="route('dashboard')">
                             {{ __('Profile') }}
                         </x-responsive-nav-link>
                     </li>
+                    @else
+                    <li>
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-responsive-nav-link>
+                    </li>
+                    @endrole
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

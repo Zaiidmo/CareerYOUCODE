@@ -17,31 +17,40 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::resource('users', UserController ::class);
-Route::resource('announcements', AnnouncementController ::class);
-Route::resource('companies', CompanyController ::class);
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-
+//HOME PAGE
 Route::get('/', function () {
     $announcements = Announcement::limit(6)->get();
     return view('home', compact('announcements'));
 });
 
-Route::get('discover', function (){
+//ANNOUNCEMENTS PAGE
+Route::get('discover', function () {
     $announcements = Announcement::get();
     return view('announcements/discover', compact('announcements'));
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified', 'checkUserRole:Staff' ])->name('dashboard');
+//ADMINS PAGES
+Route::middleware(['auth', 'verified', 'role:staff'])
+    // ->name('staff.')
+    // ->prefix('staff')
+    ->group(function () {
+        Route::resource('users', UserController::class);
+        Route::resource('announcements', AnnouncementController::class);
+        Route::resource('companies', CompanyController::class);
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+    });
+
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+// PROFILE PAGES
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile,index');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile.edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile.update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile.delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

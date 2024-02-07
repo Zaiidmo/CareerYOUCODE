@@ -6,20 +6,22 @@ use App\Http\Requests\StoreAnnouncementRequest;
 use App\Http\Requests\UpdateAnnouncementRequest;
 use App\Models\Announcement;
 use App\Models\Company;
+use App\Models\Skill;
 
 class AnnouncementController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('checkUserRole:staff')->except(['discover', 'show']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('checkUserRole:staff')->except(['discover', 'show']);
+    // }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $skills = Skill::all();
         $announcements = Announcement::all();
-        return view('announcements.index', compact('announcements'));
+        return view('announcements.index', compact('announcements','skills'));
     }
 
     /**
@@ -36,8 +38,9 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
+        $skills = Skill::all();
         $companies = Company::all();
-        return view('announcements.create', ['companies' => $companies]);
+        return view('announcements.create', ['companies' => $companies], ['skills' => $skills]);
     }
 
     /**
@@ -65,7 +68,8 @@ class AnnouncementController extends Controller
             $data['image'] = $fileName;
         }
         //Create an announcement using the data array
-        Announcement::create($data);
+        $announcement= Announcement::create($data);
+        $announcement->skills()->attach($request->skills);
         return redirect()
             ->route('announcements.index')
             ->with('message', 'Announcement created successfully.');
@@ -76,7 +80,8 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        return view('announcements.show', compact('announcement'));
+        $skills = Skill::all();
+        return view('announcements.show', compact('announcement','skills'));
     }
 
     /**
@@ -84,8 +89,9 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
+        $skills = Skill::all();
         $companies = Company::all();
-        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies]);
+        return view('announcements.edit', ['announcement' => $announcement, 'companies' => $companies, 'skills' => $skills]);
     }
 
     /**
@@ -107,6 +113,7 @@ class AnnouncementController extends Controller
             $data['image'] = $fileName;
         }
         $announcement->update($data);
+        $announcement->skills()->attach($request->skills);
         return redirect()
             ->route('announcements.index')
             ->with('message', 'Announcement updated successfully.');
