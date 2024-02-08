@@ -53,6 +53,18 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Announcement::class, 'announcement_user');
     }
+    public function recommendAnnouncements()
+    {
+        // Get the user's skills
+        $userSkills = $this->skills()->pluck('user_skill.skill_id');
+
+        // Query announcements that require at least 50% of the user's skills
+        $recommendedAnnouncements = Announcement::whereHas('skills', function ($query) use ($userSkills) {
+            $query->whereIn('skill_id', $userSkills);
+        }, '>=', count($userSkills) * 0.5)->get();
+
+        return $recommendedAnnouncements;
+    }
     
 }
 

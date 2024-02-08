@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <main>
+    <main class="mx-auto max-w-screen-xl">
         <!-- Header -->
-        <div id="profile-card" class="p-16 lg:pl-24">
+        <div id="profile-card" class="p-16 lg:px-0">
             <div class="p-8 bg-white rounded-lg dark:bg-gray-800 shadow mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-3">
                     <div class="grid grid-cols-2 lg:grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
@@ -49,9 +49,9 @@
         <!-- Main -->
         <div id="about_section" class="grid grid-cols-1 lg:grid-cols-3 gap-3">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 col-span-3">
-                <div class="flex flex-col gap-4 px-16 lg:col-span-1 lg:pl-24 lg:pr-16 lg:pt-0">
+                <div class="flex flex-col gap-4 px-16 lg:col-span-1 lg:p-0">
                     <div id="skills" class="">
-                        <div id="skills" class="p-8  bg-white rounded-lg dark:bg-gray-800 shadow ">
+                        <div id="skills" class="p-8 bg-white rounded-lg dark:bg-gray-800 shadow ">
                             <div class="mb-10 flex justify-between items-center">
                                 <h1
                                     class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">

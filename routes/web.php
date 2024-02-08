@@ -25,8 +25,10 @@ Route::get('/', function () {
 
 //ANNOUNCEMENTS PAGE
 Route::get('discover', function () {
+    $user= auth()->user();
+    $recommendedAnnouncements = $user->recommendAnnouncements();
     $announcements = Announcement::get();
-    return view('announcements/discover', compact('announcements'));
+    return view('announcements/discover', compact('announcements', 'recommendedAnnouncements'));
 });
 Route::post('announcements/{announcementId}/apply', [UserController::class, 'apply'])->name('announcements.apply');
 //ADMINS PAGES

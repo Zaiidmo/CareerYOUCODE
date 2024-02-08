@@ -85,4 +85,15 @@ class UserController extends Controller
 
         return redirect()->route('profile.index')->with('status', 'Your Applications Was Successful.');
     }
+    // public function showRecommendations()
+    // {
+    //     // Get the authenticated user
+    //     $user = auth()->user();
+
+    //     // Call the recommendAnnouncements method on the user instance
+    //     $recommendedAnnouncements = $user->recommendAnnouncements();
+
+    //     // Pass the recommended announcements to the view
+    //     return view('recommendations', compact('recommendedAnnouncements'));
+    // }
 }
