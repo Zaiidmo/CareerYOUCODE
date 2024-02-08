@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div id="contact" class="">
-                        <div id="contact" class="p-8  bg-white rounded-lg dark:bg-gray-800 shadow ">
+                        <div id="contact" class="p-8 bg-white rounded-lg dark:bg-gray-800 shadow ">
                             <div class="mb-10 flex justify-between items-center">
                                 <h1
                                     class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">
@@ -134,7 +134,7 @@
                     </div>
                 </div>
 
-                <div id="about" class="px-16 h-full col-span-2 lg:pl-0 lg:pr-16 lg:pt-0 ">
+                <div id="about" class="px-16 h-full col-span-2 lg:px-0 lg:pt-0 ">
                     <div id="about" class="p-8 pb-0 h-full bg-white rounded-lg dark:bg-gray-800 shadow ">
                         <h1 class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">About
                             Me
@@ -181,7 +181,7 @@
                 </div>
             </div>
 
-            <div id="applications" class="px-16 lg:col-span-3 lg:pl-24 mt-16 lg:pt-0">
+            <div id="applications" class="px-16 lg:col-span-3 lg:px-0 mt-16 lg:pt-0">
                 <div id="applications" class="p-8  bg-white rounded-lg dark:bg-gray-800 shadow ">
                     <div class="mb-10 flex justify-between items-center">
                         <h1 class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">My
