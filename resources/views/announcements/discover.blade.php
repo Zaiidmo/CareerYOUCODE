@@ -83,9 +83,11 @@
                                 @endforeach
                             </div>
                         @else
-                            <h3 class="mt-4 text-2xl tracking-wider font-bold text-gray-900 dark:text-white">
-                                No Announcements Available
+                            <h3 class="mt-4 text-center text-9xl tracking-wider font-bolder text-gray-900 dark:text-white">
+                                :) <br>
                             </h3>
+                            <p class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">No announcements are matching your profile <br></p>
+                            <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">Feel free to Check all the available announcements down here</p>
                         @endif
                     </div>
                 </section>
