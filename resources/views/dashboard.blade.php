@@ -30,7 +30,7 @@
                                 Total Users
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                users  </p>
+                                {{ $users }}  </p>
                         </div>
                     </div>
                     <div id="Authors" class="flex items-center p-4 bg-white  rounded-2xl shadow-xs dark:bg-gray-800">
@@ -54,7 +54,7 @@
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                                 Total Admins </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                admins  </p>
+                                {{ $staffCount }}  </p>
                         </div>
                     </div>
                     <!-- Card -->
@@ -71,7 +71,7 @@
                                 Total Students
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Students  </p>
+                                {{ $studentsCount }}  </p>
                         </div>
                     </div>
                     <!-- Card -->
@@ -88,7 +88,7 @@
                                 Companies
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Company  </p>
+                                {{ $companies }}  </p>
                         </div>
 
                     </div>
@@ -106,7 +106,7 @@
                                 Announcements
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                jobs  </p>
+                                {{ $announcements }}  </p>
                         </div>
                     </div>
                     <!-- Card -->
@@ -120,10 +120,10 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Categories
+                                Applications
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                category  </p>
+                                {{ $applications }}  </p>
                         </div>
 
                     </div>

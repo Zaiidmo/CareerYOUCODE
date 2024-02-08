@@ -5,6 +5,9 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Announcement;
+use App\Models\Company;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,24 +28,27 @@ Route::get('/', function () {
 
 //ANNOUNCEMENTS PAGE
 Route::get('discover', function () {
-    $user= auth()->user();
+    $user = auth()->user();
     $recommendedAnnouncements = $user->recommendAnnouncements();
     $announcements = Announcement::get();
     return view('announcements/discover', compact('announcements', 'recommendedAnnouncements'));
 });
 Route::post('announcements/{announcementId}/apply', [UserController::class, 'apply'])->name('announcements.apply');
 //ADMINS PAGES
-Route::middleware(['auth', 'verified', 'role:staff'])
-    // ->name('staff.')
-    // ->prefix('staff')
-    ->group(function () {
-        Route::resource('users', UserController::class);
-        Route::resource('announcements', AnnouncementController::class);
-        Route::resource('companies', CompanyController::class);
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
-    });
+Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
+    Route::resource('users', UserController::class);
+    Route::resource('announcements', AnnouncementController::class);
+    Route::resource('companies', CompanyController::class);
+    Route::get('/dashboard', function () {
+        $users = User::count();
+        $staffCount = DB::table('model_has_roles')->where('role_id', 2)->count();
+        $studentsCount = DB::table('model_has_roles')->where('role_id', 1)->count();
+        $announcements = Announcement::count();
+        $companies = Company::count();
+        $applications = DB::table('announcement_user')->count();
+        return view('dashboard', compact('users', 'announcements', 'companies', 'staffCount', 'studentsCount', 'applications'));
+    })->name('dashboard');
+});
 
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
