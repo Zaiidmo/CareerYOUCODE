@@ -22,7 +22,7 @@ class AnnouncementController extends Controller
     {
         $skills = Skill::all();
         $announcements = Announcement::all();
-        // dd($announcements);
+        // dd($announcements->applicants->name);
         return view('announcements.index', compact('announcements','skills'));
     }
 

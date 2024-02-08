@@ -106,7 +106,7 @@
                             <th class="px-4 py-3">Applied At</th>
                             <!-- <th class="px-4 py-3">Purshased Tickets</th> -->
                             <!-- <th class="px-4 py-3"></th> -->
-                            {{-- <th class="px-4 py-3">Actions</th> --}}
+                            <th class="px-4 py-3">Check</th>
                         </tr>
                     </thead>
                     <tbody class="text-center bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -114,21 +114,35 @@
                             <tr class="text-gray-700 dark:text-gray-400">
                                 @forelse ($announcement->applicants as $application)
                                     <td class="self-center px-4 py-3">
-                                        <p class="font-semibold ">{{ $announcement->title }} </p>
+                                        <p class="font-semibold">{{ $announcement->title }}</p>
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        {{ optional($application->user)->name ?? 'Unknown User' }} </td>
+                                        {{ $application->name }}
+                                    </td>
                                     <td class="px-4 py-3 text-sm">
                                         {{ $application->created_at }}
                                     </td>
-                                    {{-- <td class="px-4 py-3 text-sm">
-                                {{ $announcement->created_at }} 
-                            </td> --}}
+                                    <td class="px-4 py-3 text-sm">
+                                        <a href="{{ route('announcements.show', $announcement) }}"
+                                        class="self-end mr-4 text-black dark:text-white">
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 32 32">
+                                                <circle cx="16" cy="16" r="4" fill="currentColor" />
+                                                <path fill="currentColor"
+                                                    d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68M16 22.5a6.5 6.5 0 1 1 6.5-6.5a6.51 6.51 0 0 1-6.5 6.5" />
+                                            </svg>
+                                        </button>
+                                    </a>
+                                    </td>
                                 @empty
-                                    <p class="font-semibold ">No Applications Have Been made yet</p>
+                                    <td colspan="3" class="px-4 py-3 text-sm">
+                                        No Applications Have Been Made Yet
+                                    </td>
                                 @endforelse
                             </tr>
                         @endforeach
+
                     </tbody>
                 </table>
             </div>
