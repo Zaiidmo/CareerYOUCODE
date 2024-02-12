@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\Announcement;
 use App\Models\Company;
@@ -48,6 +50,8 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
         $applications = DB::table('announcement_user')->count();
         return view('dashboard', compact('users', 'announcements', 'companies', 'staffCount', 'studentsCount', 'applications'));
     })->name('dashboard');
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
 });
 
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -61,5 +65,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile.update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile.delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__ . '/auth.php';
