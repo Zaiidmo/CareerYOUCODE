@@ -13,4 +13,17 @@ class RoleController extends Controller
         $roles = Role::all();
         return view('admin.roles.index', compact('roles'));
     }
+    public function store(){
+        request()->validate([
+            'name' => 'required'
+        ]);
+        Role::create([
+            'name' => request('name')
+        ]);
+        return back();
+    }
+    public function destroy(Role $role){
+        $role->delete();
+        return back();
+    }
 }
