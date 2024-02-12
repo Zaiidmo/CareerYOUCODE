@@ -29,11 +29,15 @@
                         class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">{{ $skill->name }}</span>
                 @endforeach
             </div>
+            @auth
             <form action="{{ route('announcements.apply', ['announcementId' => $announcement->id]) }}" method="POST"> 
                 @csrf
                 @method('POST')
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-l px-5 py-2.5 me-2 mb-2 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none dark:focus:ring-blue-800">Apply Now</button>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-l px-5 py-2.5 me-2 mb-2 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none dark:focus:ring-blue-800">APPLY NOW </button>
             </form>
+            @else 
+            <button type="submit" disabled class="text-white bg-gray-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-l px-5 py-2.5 me-2 mb-2 dark:bg-gray-700 dark:hover:bg-red-800 focus:outline-none dark:focus:ring-blue-800">LOGIN TO APPLY</button>
+            @endauth
                       
         </div>
     </section>

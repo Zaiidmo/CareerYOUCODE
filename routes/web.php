@@ -29,17 +29,16 @@ Route::get('/', function () {
 });
 
 //ANNOUNCEMENTS PAGE
-Route::get('discover', function () {
-    $user = auth()->user();
-    $recommendedAnnouncements = $user->recommendAnnouncements();
-    $announcements = Announcement::get();
-    return view('announcements/discover', compact('announcements', 'recommendedAnnouncements'));
-});
+Route::get('discover',[AnnouncementController::class, 'discover'])->name('discover');
+Route::get('announcements/{announcement}', [AnnouncementController::class, 'show'])
+    ->name('announcements.show');
+
+
 Route::post('announcements/{announcementId}/apply', [UserController::class, 'apply'])->name('announcements.apply');
 //ADMINS PAGES
 Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
     Route::resource('users', UserController::class);
-    Route::resource('announcements', AnnouncementController::class);
+    Route::resource('announcements', AnnouncementController::class)->except(['show']);
     Route::resource('companies', CompanyController::class);
     Route::get('/dashboard', function () {
         $users = User::count();

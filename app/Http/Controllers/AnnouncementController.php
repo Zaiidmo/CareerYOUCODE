@@ -23,7 +23,7 @@ class AnnouncementController extends Controller
         $skills = Skill::all();
         $announcements = Announcement::all();
         // dd($announcements->applicants->name);
-        return view('announcements.index', compact('announcements','skills'));
+        return view('announcements.index', compact('announcements', 'skills'));
     }
 
     /**
@@ -32,9 +32,17 @@ class AnnouncementController extends Controller
 
     public function discover()
     {
+        $user = auth()->user();
         $announcements = Announcement::all();
+
+        if ($user) {
+            $recommendedAnnouncements = $user->recommendAnnouncements();
+            return view('announcements.discover', compact('announcements', 'recommendedAnnouncements'));
+        }
+
         return view('announcements.discover', compact('announcements'));
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -70,11 +78,9 @@ class AnnouncementController extends Controller
             $data['image'] = $fileName;
         }
         //Create an announcement using the data array
-        $announcement= Announcement::create($data);
+        $announcement = Announcement::create($data);
         $announcement->skills()->attach($request->skills);
-        return redirect()
-            ->route('announcements.index')
-            ->with('message', 'Announcement created successfully.');
+        return redirect()->route('announcements.index')->with('message', 'Announcement created successfully.');
     }
 
     /**
@@ -83,7 +89,7 @@ class AnnouncementController extends Controller
     public function show(Announcement $announcement)
     {
         $skills = Skill::all();
-        return view('announcements.show', compact('announcement','skills'));
+        return view('announcements.show', compact('announcement', 'skills'));
     }
 
     /**
@@ -116,9 +122,7 @@ class AnnouncementController extends Controller
         }
         $announcement->update($data);
         $announcement->skills()->sync($request->skills);
-        return redirect()
-            ->route('announcements.index')
-            ->with('message', 'Announcement updated successfully.');
+        return redirect()->route('announcements.index')->with('message', 'Announcement updated successfully.');
     }
 
     /**
@@ -127,10 +131,6 @@ class AnnouncementController extends Controller
     public function destroy(string $id)
     {
         Announcement::destroy($id);
-        return redirect()
-            ->route('announcements.index')
-            ->with('message', 'Announcement deleted successfully.');
+        return redirect()->route('announcements.index')->with('message', 'Announcement deleted successfully.');
     }
-    
-
 }

@@ -40,7 +40,7 @@
                                 class=" text-gray-600 dark:text-gray-400 inline-block py-1 text-xs font-semibold tracking-wide text-primary-600 dark:text-primary-500">
                                 Based on your skills</span>
                         </div>
-                        @if ($recommendedAnnouncements->count() > 0)
+                        @if (isset($recommendedAnnouncements) && count($recommendedAnnouncements) > 0)
                             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3 ">
                                 @foreach ($recommendedAnnouncements as $recommend)
                                     <div
@@ -82,12 +82,19 @@
                                     </div>
                                 @endforeach
                             </div>
-                        @else
+                        @elseif(isset($recommendedAnnouncements) && count($recommendedAnnouncements) == 0)
                             <h3 class="mt-4 text-center text-9xl tracking-wider font-bolder text-gray-900 dark:text-white">
                                 :) <br>
                             </h3>
                             <p class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">No announcements are matching your profile <br></p>
                             <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">Feel free to Check all the available announcements down here</p>
+                            @else
+                            <h3 class="mt-4 text-center text-9xl tracking-wider font-bolder text-gray-900 dark:text-white">
+                                :) <br>
+                            </h3>
+                            <p class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">GET STARTED NOW<br></p>
+                            <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">To Get Free Useful Recommendations</p>
+                            
                         @endif
                     </div>
                 </section>
