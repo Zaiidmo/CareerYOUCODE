@@ -26,4 +26,14 @@ class RoleController extends Controller
         $role->delete();
         return back();
     }
+    
+    public function update(Role $role){
+        request()->validate([
+            'name' => 'required'
+        ]);
+        $role->update([
+            'name' => request('name')
+        ]);
+        return redirect()->route('roles.index');
+    }
 }

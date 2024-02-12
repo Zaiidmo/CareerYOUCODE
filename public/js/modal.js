@@ -3,8 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal').classList.toggle('hidden');
     });
 
-    // // Close the modal when clicking on the overlay or pressing escape key
-    // document.getElementById('modal-overlay').addEventListener('click', function() {
-    //     document.getElementById('modal').classList.add('hidden');
-    // });
+    var editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var id = button.getAttribute('data-role-id');
+            var modal = document.getElementById('modification-modal-' + id);
+            modal.classList.toggle('hidden');
+        });
+    });
 });
