@@ -81,7 +81,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $announcement = Announcement::find($announcementId);
-        $user->applications()->sync($announcement);
+        $user->applications()->attach($announcement);
 
         return redirect()->route('profile.index')->with('status', 'Your Applications Was Successful.');
     }

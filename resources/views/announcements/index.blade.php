@@ -111,8 +111,10 @@
                     </thead>
                     <tbody class="text-center bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                         @foreach ($announcements as $announcement)
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            @forelse ($announcement->applicants as $application)
                             <tr class="text-gray-700 dark:text-gray-400">
-                                @forelse ($announcement->applicants as $application)
+                            
                                     <td class="self-center px-4 py-3">
                                         <p class="font-semibold">{{ $announcement->title }}</p>
                                     </td>
@@ -139,9 +141,10 @@
                                     <td colspan="3" class="px-4 py-3 text-sm">
                                         No Applications Have Been Made Yet
                                     </td>
+                                </tr>
                                 @endforelse
                             </tr>
-                        @endforeach
+                                @endforeach
 
                     </tbody>
                 </table>
