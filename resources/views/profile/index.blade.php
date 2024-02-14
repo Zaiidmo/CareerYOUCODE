@@ -188,6 +188,7 @@
                             Applications
                         </h1>
                     </div>
+                    <div class="grid lg:grid-cols-3">
                     @foreach ($user->applications as $application)
                         <div id="application"
                             class="w-full md:w-80 rounded-xl mb-5 bg-gray-200 dark:bg-gray-900 shadow-2xl">
@@ -212,7 +213,8 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                        @endforeach
+                    </div>
 
                 </div>
             </div>
