@@ -29,10 +29,7 @@ Route::get('/', function () {
 });
 
 //ANNOUNCEMENTS PAGE
-Route::get('discover',[AnnouncementController::class, 'discover'])->name('discover');
-Route::get('announcements/{announcement}', [AnnouncementController::class, 'show'])
-    ->name('announcements.show');
-
+Route::get('discover', [AnnouncementController::class, 'discover'])->name('discover');
 
 Route::post('announcements/{announcementId}/apply', [UserController::class, 'apply'])->name('announcements.apply');
 //ADMINS PAGES
@@ -53,6 +50,7 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
     Route::resource('permissions', PermissionController::class);
 });
 
+Route::get('announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // PROFILE PAGES
@@ -64,6 +62,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile.update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile.delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 require __DIR__ . '/auth.php';
