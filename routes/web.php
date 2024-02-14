@@ -30,6 +30,12 @@ Route::get('/', function () {
 
 //ANNOUNCEMENTS PAGE
 Route::get('discover', [AnnouncementController::class, 'discover'])->name('discover');
+// Route::get('discover', function () {
+//     $announcements = Announcement::all();
+//     // $wantedSkillsId = DB::table('announcement_skill')->select('announcement_id', DB::raw('count(*) as total'))->groupBy('announcement_id')->orderBy('total', 'desc')->limit(1)->get();
+//     // $wantedSkill = DB::table('skills')->whereIn('id', $wantedSkillId)->get();
+//     return view('announcements.discover', compact('wantedSkill', 'announcements'));
+// });
 
 Route::post('announcements/{announcementId}/apply', [UserController::class, 'apply'])->name('announcements.apply');
 //ADMINS PAGES

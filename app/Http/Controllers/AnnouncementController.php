@@ -8,6 +8,7 @@ use App\Models\Announcement;
 use App\Models\Company;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AnnouncementController extends Controller
 {
@@ -34,14 +35,18 @@ class AnnouncementController extends Controller
     {
         $user = auth()->user();
         $announcements = Announcement::all();
+        $Ann = new Announcement();
+        $wantedSkill = $Ann->wantedSkills();
+        // dd($wantedSkill);
 
         if ($user) {
             $recommendedAnnouncements = $user->recommendAnnouncements();
-            return view('announcements.discover', compact('announcements', 'recommendedAnnouncements'));
+            return view('announcements.discover', compact('announcements', 'recommendedAnnouncements', 'wantedSkill'));
         }
-
-        return view('announcements.discover', compact('announcements'));
+        
+        return view('announcements.discover', compact('announcements', 'wantedSkill'));
     }
+
 
     /**
      * Show the form for creating a new resource.

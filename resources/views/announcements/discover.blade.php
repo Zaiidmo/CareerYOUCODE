@@ -50,8 +50,7 @@
                                                 style="background-image: url('{{ asset('storage/uploads/jobs_image/' . $recommend->image) }}')">
                                             </div>
                                             <div class="flex flex-col mt-4 mb-8">
-                                                <h5
-                                                    class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                                     {{ $recommend->title }} </h5>
                                                 <span
                                                     class=" text-gray-700 dark:text-gray-400 inline-block py-1 text-xs font-semibold tracking-wide text-primary-600 dark:text-primary-500">
@@ -86,22 +85,34 @@
                             <h3 class="mt-4 text-center text-9xl tracking-wider font-bolder text-gray-900 dark:text-white">
                                 :) <br>
                             </h3>
-                            <p class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">No announcements are matching your profile <br></p>
-                            <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">Feel free to Check all the available announcements down here</p>
-                            @else
+                            <p
+                                class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">
+                                No announcements are matching your profile <br></p>
+                            <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">
+                                Feel free to Check all the available announcements down here</p>
+                        @else
                             <h3 class="mt-4 text-center text-9xl tracking-wider font-bolder text-gray-900 dark:text-white">
                                 :) <br>
                             </h3>
-                            <p class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">GET STARTED NOW<br></p>
-                            <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">To Get Free Useful Recommendations</p>
-                            
+                            <p
+                                class="mt-8 text-center text-3xl tracking-wider font-bolder text-gray-900 dark:text-white mb-1">
+                                GET STARTED NOW<br></p>
+                            <p class="text-center tracking-wider font-bolder font-medium text-gray-700 dark:text-gray-200">
+                                To Get Free Useful Recommendations</p>
                         @endif
                     </div>
+                </section>
+                <section class="bg-white dark:bg-red-800">
+                    <h2 class="mb-4 text-4xl tracking-wider font-bold text-gray-900 dark:text-white">Most Wanted Skill
+                    </h2>
+                        <span class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">{{ $wantedSkill[0]->name }}</span>
+                        {{-- <span class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">{{ $wantedSkill[0]->count }}</span> --}}
                 </section>
                 <section class="bg-gray-300 dark:bg-gray-900">
                     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:px-6 ">
                         <div class="flex flex-col mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                            <h2 class="mb-4 text-4xl tracking-wider font-bold text-gray-900 dark:text-white">Here are all the Available Opportunities
+                            <h2 class="mb-4 text-4xl tracking-wider font-bold text-gray-900 dark:text-white">Here are all
+                                the Available Opportunities
                             </h2>
                         </div>
                         <div id="announcements-container" class="grid gap-8 lg:grid-cols-2">
@@ -138,7 +149,7 @@
                                     </div>
                                 </article>
                             @endforeach
-    
+
                         </div>
                     </div>
                 </section>
