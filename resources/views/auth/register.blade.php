@@ -18,6 +18,7 @@
                     </h1>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        @method('POST')
 
                         <!-- Name -->
                         <div>

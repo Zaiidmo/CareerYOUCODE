@@ -60,9 +60,9 @@
                 @else
                     <!-- Display something else if the user is not authenticated -->
                         <div id="navigation" class="hidden md:flex gap-3">
-                            <a href="login"
+                            <a href="{{ route('login') }}"
                                 class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-1 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">L O G I N</a>
-                            <a href="register"
+                            <a href="{{ route('register') }}"
                                 class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-1 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">GET STARTED</a>
                         </div>
                 @endauth

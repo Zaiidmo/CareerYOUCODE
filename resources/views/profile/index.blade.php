@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <main>
+    <main class="mx-auto max-w-screen-xl">
         <!-- Header -->
-        <div id="profile-card" class="p-16 lg:pl-24">
+        <div id="profile-card" class="p-16 lg:px-0">
             <div class="p-8 bg-white rounded-lg dark:bg-gray-800 shadow mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-3">
                     <div class="grid grid-cols-2 lg:grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
@@ -27,8 +27,8 @@
                     <div class="relative justify-center">
                         <div
                             class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center dark:text-white text-indigo-500">
-                            <img class="rounded-full " src="{{ asset('storage/uploads/profiles/' . 'profile.jpg') }}"
-                                alt="profile">
+                            <img class="rounded-full object-cover w-full h-full "
+                                src="{{ asset('storage/uploads/profiles/' . $user->avatar) }}" alt="profile">
                         </div>
                     </div>
                     <div class="lg:space-x-8 py-1 flex justify-center lg:justify-between mt-32 md:mt-0 md:justify-center">
@@ -49,16 +49,16 @@
         <!-- Main -->
         <div id="about_section" class="grid grid-cols-1 lg:grid-cols-3 gap-3">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 col-span-3">
-                <div class="flex flex-col gap-4 px-16 lg:col-span-1 lg:pl-24 lg:pr-16 lg:pt-0">
+                <div class="flex flex-col gap-4 px-16 lg:col-span-1 lg:p-0">
                     <div id="skills" class="">
-                        <div id="skills" class="p-8  bg-white rounded-lg dark:bg-gray-800 shadow ">
+                        <div id="skills" class="p-8 bg-white rounded-lg dark:bg-gray-800 shadow ">
                             <div class="mb-10 flex justify-between items-center">
                                 <h1
                                     class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">
                                     My
                                     Skills
                                 </h1>
-                                <button>
+                                <button id="add-skill-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                         viewBox="0 0 24 24" class="text-gray-800 dark:text-white">
                                         <path fill="currentColor"
@@ -66,24 +66,30 @@
                                     </svg>
                                 </button>
                             </div>
-                            <div class="grid grid-cols-3 md:grid-cols-5 gap-3 ">
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
-                                <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">skill</span>
+                            <div id="select-skill-wrapper" class="hidden">
+                                <form id="skills_form" action="{{ route('update_user_skills') }}" method="post">
+                                    @csrf
+                                    @method('patch')
+                                    <select id="select-skills" name="skills[]" multiple
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                        required>
+                                        @foreach ($skills as $skill)
+                                            <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </form>
+                            </div>
+                            <div class="flex flex-row flex-wrap gap-3">
+                                @foreach ($user->skills as $skill)
+                                    <span
+                                        class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500">{{ $skill->name }}</span>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div id="contact" class="">
-                        <div id="contact" class="p-8  bg-white rounded-lg dark:bg-gray-800 shadow ">
+                        <div id="contact" class="p-8 bg-white rounded-lg dark:bg-gray-800 shadow ">
                             <div class="mb-10 flex justify-between items-center">
                                 <h1
                                     class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">
@@ -128,7 +134,7 @@
                     </div>
                 </div>
 
-                <div id="about" class="px-16 h-full col-span-2 lg:pl-0 lg:pr-16 lg:pt-0 ">
+                <div id="about" class="px-16 h-full col-span-2 lg:px-0 lg:pt-0 ">
                     <div id="about" class="p-8 pb-0 h-full bg-white rounded-lg dark:bg-gray-800 shadow ">
                         <h1 class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">About
                             Me
@@ -175,37 +181,63 @@
                 </div>
             </div>
 
-            <div id="applications" class="px-16 lg:col-span-3 lg:pl-24 mt-16 lg:pt-0">
+            <div id="applications" class="px-16 lg:col-span-3 lg:px-0 mt-16 lg:pt-0">
                 <div id="applications" class="p-8  bg-white rounded-lg dark:bg-gray-800 shadow ">
                     <div class="mb-10 flex justify-between items-center">
                         <h1 class="font-semibold font-poppins tracking-widest text-gray-800 text-2xl dark:text-white">My
                             Applications
                         </h1>
                     </div>
-                    <div id="application" class="w-full md:w-80 rounded-xl mb-5 bg-gray-200 dark:bg-gray-900 shadow-2xl ">
-                        <div class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover  bg-center"
-                            style="background-image: url('https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
-                        </div>
-                        <div class="p-4 rounded-b-xl ">
-                            <div class="flex flex-col items-center justify-center">
-                                <h1 class="text-black dark:text-white font-medium">Full Stack Web dev</h1>
-                                <p class="text-black dark:text-white text-sm my-1">ShellBoxes</p>
-                                <a class="self-end mr-4 text-black dark:text-white">
-                                    <button>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 32 32">
-                                            <circle cx="16" cy="16" r="4" fill="currentColor" />
-                                            <path fill="currentColor"
-                                                d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68M16 22.5a6.5 6.5 0 1 1 6.5-6.5a6.51 6.51 0 0 1-6.5 6.5" />
-                                        </svg>
-                                    </button>
-                                </a>
+                    <div class="grid lg:grid-cols-3">
+                    @foreach ($user->applications as $application)
+                        <div id="application"
+                            class="w-full md:w-80 rounded-xl mb-5 bg-gray-200 dark:bg-gray-900 shadow-2xl">
+                            <div class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover bg-center"
+                                style="background-image: url('{{ asset('storage/uploads/jobs_image/' . $application->image) }}')">
+                            </div>
+                            <div class="p-4 rounded-b-xl">
+                                <div class="flex flex-col items-center justify-center">
+                                    <h1 class="text-black dark:text-white font-medium">{{ $application->title }}</h1>
+                                    <p class="text-black dark:text-white text-sm my-1">{{ $application->company->name    }}</p>
+                                    <a href="{{ route('announcements.show', $application) }}"
+                                        class="self-end mr-4 text-black dark:text-white">
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 32 32">
+                                                <circle cx="16" cy="16" r="4" fill="currentColor" />
+                                                <path fill="currentColor"
+                                                    d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68M16 22.5a6.5 6.5 0 1 1 6.5-6.5a6.51 6.51 0 0 1-6.5 6.5" />
+                                            </svg>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
+
                 </div>
             </div>
         </div>
     </main>
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addSkillButton = document.getElementById('add-skill-button');
+        const selectSkillWrapper = document.getElementById('select-skill-wrapper');
+        const selectSkills = document.getElementById('select-skills');
+        const skillsForm = document.getElementById('skills-form');
+
+        addSkillButton.addEventListener('click', function() {
+            selectSkillWrapper.classList.toggle('hidden');
+        });
+
+        selectSkills.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission by default
+                skillsForm.submit(); // Manually submit the form
+            }
+        });
+
+    });
+</script>

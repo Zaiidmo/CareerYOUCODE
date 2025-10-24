@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\Announcement;
+use App\Models\Company;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,31 +29,42 @@ Route::get('/', function () {
 });
 
 //ANNOUNCEMENTS PAGE
-Route::get('discover', function () {
-    $announcements = Announcement::get();
-    return view('announcements/discover', compact('announcements'));
+Route::get('discover', [AnnouncementController::class, 'discover'])->name('discover');
+// Route::get('discover', function () {
+//     $announcements = Announcement::all();
+//     // $wantedSkillsId = DB::table('announcement_skill')->select('announcement_id', DB::raw('count(*) as total'))->groupBy('announcement_id')->orderBy('total', 'desc')->limit(1)->get();
+//     // $wantedSkill = DB::table('skills')->whereIn('id', $wantedSkillId)->get();
+//     return view('announcements.discover', compact('wantedSkill', 'announcements'));
+// });
+
+Route::post('announcements/{announcementId}/apply', [UserController::class, 'apply'])->name('announcements.apply');
+//ADMINS PAGES
+Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
+    Route::resource('users', UserController::class);
+    Route::resource('announcements', AnnouncementController::class)->except(['show']);
+    Route::resource('companies', CompanyController::class);
+    Route::get('/dashboard', function () {
+        $users = User::count();
+        $staffCount = DB::table('model_has_roles')->where('role_id', 2)->count();
+        $studentsCount = DB::table('model_has_roles')->where('role_id', 1)->count();
+        $announcements = Announcement::count();
+        $companies = Company::count();
+        $applications = DB::table('announcement_user')->count();
+        return view('dashboard', compact('users', 'announcements', 'companies', 'staffCount', 'studentsCount', 'applications'));
+    })->name('dashboard');
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
 });
 
-//ADMINS PAGES
-Route::middleware(['auth', 'verified', 'role:staff'])
-    // ->name('staff.')
-    // ->prefix('staff')
-    ->group(function () {
-        Route::resource('users', UserController::class);
-        Route::resource('announcements', AnnouncementController::class);
-        Route::resource('companies', CompanyController::class);
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
-    });
-
+Route::get('announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // PROFILE PAGES
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile,index');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile.edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/update-user-skills', [ProfileController::class, 'updateUserSkills'])->name('update_user_skills');
     Route::patch('/profile.update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile.delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

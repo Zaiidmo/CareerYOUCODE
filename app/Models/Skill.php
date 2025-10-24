@@ -10,7 +10,7 @@ class Skill extends Model
     use HasFactory;
     public function users()
         {
-            return $this->belongstomany(User::class);
+            return $this->belongstomany(User::class, 'user_skill');
         }
     public function announcements()
         {

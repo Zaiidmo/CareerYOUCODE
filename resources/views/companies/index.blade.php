@@ -38,7 +38,7 @@
                         </tr>
                     </thead>
                     <tbody class="text-center bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                        <?php foreach ($companies as $company) { ?>
+                        @foreach ($companies as $company) 
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="self-center px-4 py-3">
                                 <div class="flex items-center text-sm">
@@ -51,10 +51,10 @@
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $company['email'] ?>
+                                {{ $company['email']}} 
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $company['location'] ?>
+                                {{ $company['location']}} 
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center justify-center space-x-4 text-sm">
@@ -86,7 +86,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <?php } ?>
+                       @endforeach
                     </tbody>
                 </table>
             </div>
